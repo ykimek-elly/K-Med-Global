@@ -2,6 +2,33 @@
 
 이번 세션에서 발견되었으나 별도 분리한 작업 목록입니다.
 
+## Git Workflow (이 프로젝트 기준)
+
+세션 시작 시:
+
+- git pull origin main (다른 환경에서 작업했을 가능성 대비)
+- git status (clean 상태 확인)
+
+작업 브랜치 전략:
+
+- 시안 단계 (현재): main에 직접 commit. 변경량 작고 단독 작업이라 단순함 우선
+- 클라이언트 컨펌 후: feature/<topic> 브랜치 사용 권장 (예: feature/why-korea-tone, feature/token-cleanup)
+
+커밋 메시지 컨벤션 (Conventional Commits):
+
+- feat: 새 기능/페이지/컴포넌트
+- fix: 버그·컴플라이언스 수정
+- docs: 문서·주석 수정
+- style: 디자인 토큰·CSS 정리 (코드 동작 변화 없음)
+- refactor: 코드 구조 개선
+- chore: 설정·빌드·의존성
+
+세션 종료 시:
+
+- git status (clean인지 확인)
+- 변경분 push (git push origin <branch>)
+- NEXT_SESSION.md에 미완료 항목 있을 시 추가 후 별도 커밋
+
 ## 1. JSX 하드코딩 hex 토큰화 (kmed-treatment-detail-visual.jsx, 8건)
 
 다음 위치에서 hex 코드를 CSS 토큰으로 치환:
