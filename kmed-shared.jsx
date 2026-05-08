@@ -136,7 +136,7 @@ const FooterDesktop = () => (
         <p className="kf__desc">A licensed international patient agency connecting global travelers with accredited Korean hospitals. Compassionate, transparent, end-to-end care.</p>
         <div className="kf__cert">
           <span className="kf__cert-label">Korea Health Industry Development Institute</span>
-          <span className="kf__cert-value">IMA Reg. No. 2024-IPA-0421</span>
+          <span className="kf__cert-value">Reg. No. KMHW-IMA-2026-0421</span>
           <span className="kf__cert-meta">Licensed International Medical Agency · MOHW certified</span>
         </div>
       </div>
@@ -148,7 +148,7 @@ const FooterDesktop = () => (
       ))}
     </div>
     <div className="kf__bottom">
-      <div>© 2026 K-Med Global Inc.  ·  Seoul, South Korea  ·  IMA Reg. No. 2024-IPA-0421</div>
+      <div>© 2026 K-Med Global Inc.  ·  Seoul, South Korea  ·  Reg. No. KMHW-IMA-2026-0421</div>
       <div className="kf__socials">
         <span className="kf__social">in</span>
         <span className="kf__social">f</span>
@@ -187,7 +187,7 @@ const FooterMobile = () => {
       </div>
       <div className="kf__cert" style={{maxWidth:"none", marginTop:24}}>
         <span className="kf__cert-label">Korea Health Industry Development Institute</span>
-        <span className="kf__cert-value">IMA Reg. No. 2024-IPA-0421</span>
+        <span className="kf__cert-value">Reg. No. KMHW-IMA-2026-0421</span>
         <span className="kf__cert-meta">Licensed International Medical Agency · MOHW certified</span>
       </div>
       <div className="kf__bottom">
@@ -218,7 +218,7 @@ const FooterTablet = () => (
       ))}
       <div className="kf__cert" style={{gridColumn:"1 / -1", maxWidth:520}}>
         <span className="kf__cert-label">Korea Health Industry Development Institute</span>
-        <span className="kf__cert-value">IMA Reg. No. 2024-IPA-0421</span>
+        <span className="kf__cert-value">Reg. No. KMHW-IMA-2026-0421</span>
         <span className="kf__cert-meta">Licensed International Medical Agency · MOHW certified</span>
       </div>
     </div>

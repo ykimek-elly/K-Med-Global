@@ -579,7 +579,7 @@ const DetailBodyVisual = () => {
         </div>
 
         <div className="surface--ring" style={{padding:"24px"}}>
-          <div style={{font:"700 12px var(--font-body)", color:"var(--kmed-navy)", marginBottom:6, letterSpacing:"0.08em", textTransform:"uppercase"}}>Top partner clinics</div>
+          <div style={{font:"700 12px var(--font-body)", color:"var(--kmed-navy)", marginBottom:6, letterSpacing:"0.08em", textTransform:"uppercase"}}>Featured partner clinics</div>
           <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)", fontStyle:"italic", marginBottom:14}}>* Representative monograms — placeholder marks</div>
           {clinics.map((c,i)=>(
             <div key={i} style={{display:"flex", gap:12, alignItems:"center", padding:"10px 0", borderBottom: i<2?"1px solid var(--kmed-line)":"none"}}>
