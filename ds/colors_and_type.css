@@ -1,0 +1,135 @@
+/* 5Medical Health — Colors & Type tokens
+   Source of truth: Figma "5Medical Health Landing Page (Community)"
+   Family is Lato (Bold/Regular/Black/Light) with Roboto for footer/lang select. */
+
+/* Brand fonts — Lato (Regular / Bold / Black) self-hosted from /assets/fonts.
+   Roboto / Open Sans (footer + small UI) still come from Google Fonts.
+   NOTE: paths are relative to THIS file. Preview cards live in /preview/, but
+   the browser resolves font URLs relative to the CSS, so the same path works
+   from /preview/*.html and from /ui_kits/landing/*.html. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;700&display=block');
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('assets/fonts/Lato-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('assets/fonts/Lato-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('assets/fonts/Lato-Black.woff2') format('woff2');
+}
+
+:root {
+  /* === Brand / Primary (Material "Light Blue 500") === */
+  --primary-main:        rgb(3, 172, 242);     /* #03ACF2 — accent fill, buttons, brand */
+  --primary-light:       rgb(179, 229, 252);   /* #B3E5FC — chips, search pill, soft fills */
+  --primary-dark:        rgb(0, 87, 155);      /* #00579B — headings, sitemap, eyebrow */
+
+  /* === Secondary (Material "Green 500") === */
+  --secondary-main:      rgb(76, 175, 80);     /* #4CAF50 — success, contact CTA, badge */
+  --secondary-light:     rgb(200, 230, 201);   /* #C8E6C9 — soft gradient stop */
+  --secondary-dark:      rgb(53, 122, 56);     /* #357A38 — counter numerals, "More Info" */
+
+  /* === Accent (Material "Pink 500") === */
+  --accent-main:         rgb(233, 30, 99);     /* #E91E63 — pin/marker icons */
+  --accent-light:        rgb(248, 187, 208);   /* #F8BBD0 */
+  --accent-dark:         rgb(173, 20, 87);     /* #AD1457 */
+
+  /* === Surface / Paper === */
+  --paper-light:         #ffffff;
+  --paper-dark:          rgb(66, 66, 66);
+  --default-light:       rgb(250, 250, 250);   /* #FAFAFA */
+  --default-dark:        rgb(48, 48, 48);
+
+  /* === Foreground === */
+  --text-primary:        rgba(0, 0, 0, 0.87);
+  --text-secondary:      rgba(0, 0, 0, 0.54);
+  --text-disabled:       rgba(0, 0, 0, 0.38);
+  --text-field:          rgba(0, 0, 0, 0.42);
+  --text-on-dark:        rgb(255, 255, 255);
+  --text-on-dark-2:      rgba(255, 255, 255, 0.7);
+  --text-headline:       rgb(48, 47, 47);      /* used in Login link, logo wordmark */
+
+  /* === Lines / dividers === */
+  --divider:             rgba(0, 0, 0, 0.12);
+  --border-soft:         rgb(222, 222, 222);
+  --border-input:        rgb(210, 210, 210);
+
+  /* === Shadows === */
+  --shadow-card:         0 3px 49px 9px rgba(0,0,0,0.06);   /* Cards/Contact, big white pills */
+  --shadow-card-sm:      0 3px 24px 4px rgba(0,0,0,0.06);   /* Service card */
+  --shadow-pill:         0 0 49px -2px rgba(0,0,0,0.19);    /* "SEE DETAIL" tab, avatar */
+  --shadow-soft:         0 2px 12px rgba(0,0,0,0.08);
+
+  /* === Radii === */
+  --radius-pill:         999px;
+  --radius-xl:           24px;
+  --radius-lg:           20px;
+  --radius-md:           15px;
+  --radius-sm:           12px;
+  --radius-xs:           5px;
+  --radius-blob:         0 379.6px 379.6px 379.6px; /* organic testimonial bubble & avatar */
+
+  /* === Spacing scale (8pt base) === */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 80px;
+
+  /* === Brand gradients === */
+  --gradient-cta:        linear-gradient(180deg, rgb(3,172,242) 0%, rgb(200,230,201) 100%);
+  --gradient-soft:       linear-gradient(180deg, rgb(200,230,201) 0%, rgb(179,229,252) 100%);
+
+  /* === Type families === */
+  --font-display: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-ui:      "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-alt:     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* === Type sizes seen in Figma === */
+  --fs-display:   48px;  /* Banner title (Lato Black/Reg 48) */
+  --fs-h1:        52px;  /* Section title (TitleDefaultPrimary) */
+  --fs-h2:        36px;  /* Counter number, "Ready to get started?" */
+  --fs-h3:        32px;  /* Subtitle */
+  --fs-h4:        28px;  /* Pagination heading */
+  --fs-h5:        24px;  /* Card title, body lead */
+  --fs-body:      18px;  /* Body */
+  --fs-body-sm:   16px;  /* Buttons, fine body */
+  --fs-meta:      14px;
+  --fs-caption:   12px;
+}
+
+/* Semantic typography */
+.h-display { font: 900 var(--fs-display)/1.0 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
+.h1 { font: 400 var(--fs-h1)/1.5  var(--font-display); color: var(--text-primary); }
+.h2 { font: 700 var(--fs-h2)/1.55 var(--font-display); color: var(--text-primary); }
+.h3 { font: 700 var(--fs-h3)/1.5  var(--font-display); color: var(--text-primary); }
+.h4 { font: 700 var(--fs-h4)/1.5  var(--font-display); color: var(--primary-dark); }
+.h5 { font: 700 var(--fs-h5)/1.3  var(--font-display); color: var(--text-primary); }
+
+.lead     { font: 400 var(--fs-h5)/1.5  var(--font-body); color: var(--text-primary); }
+.body     { font: 400 var(--fs-body)/1.5 var(--font-body); color: var(--text-primary); }
+.body-sm  { font: 400 var(--fs-body-sm)/1.5 var(--font-body); color: var(--text-primary); }
+.meta     { font: 400 var(--fs-meta)/1.4 var(--font-body); color: var(--text-secondary); }
+.caption  { font: 400 var(--fs-caption)/1.4 var(--font-body); color: var(--text-secondary); }
+
+.eyebrow  { font: 700 var(--fs-body-sm)/1 var(--font-body); color: var(--primary-dark); letter-spacing: 0.04em; text-transform: uppercase; }
+.kbd-num  { font: 400 var(--fs-display)/1.16 var(--font-display); color: var(--secondary-dark); }

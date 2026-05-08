@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>K-Med Global · Responsive Mockups</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="kmed.css"/>
+  <link rel="stylesheet" href="kmed-responsive.css"/>
+  <link rel="stylesheet" href="kmed-responsive-2.css"/>
+  <link rel="stylesheet" href="kmed-responsive-3.css"/>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f0eee9; font-family: "Lato", system-ui, sans-serif; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="kmed-shared.jsx"></script>
+  <script type="text/babel" src="kmed-home.jsx"></script>
+  <script type="text/babel" src="kmed-treatments.jsx"></script>
+  <script type="text/babel" src="kmed-forms.jsx"></script>
+  <script type="text/babel" src="kmed-content.jsx"></script>
+  <script type="text/babel" src="kmed-admin.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-shell.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-pages.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-pages-2.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-admin.jsx"></script>
+
+  <script type="text/babel">
+    // Pick component per breakpoint:
+    //   - Mobile (m) and Tablet (t)  -> the *Responsive* component (proper reflow)
+    //   - Desktop                    -> the original full-fidelity page
+    // Drawer is CLOSED by default; pass drawerOnMobile to render the open state.
+
+    const Triplet = ({ id, num, title, M, T, D, m = 4400, t = 4200, d = 3680, drawerOnMobile = false }) => (
+      <DCSection id={id} title={`${num} \u00b7 ${title}`} subtitle="Mobile 375 \u00b7 Tablet 768 \u00b7 Desktop 1440">
+        <DCArtboard id={id+"-mobile"}  label="Mobile  \u00b7 375"  width={375}  height={m}>
+          <M bp="m" drawerOpen={drawerOnMobile}/>
+        </DCArtboard>
+        <DCArtboard id={id+"-tablet"}  label="Tablet  \u00b7 768"  width={768}  height={t}>
+          <T bp="t"/>
+        </DCArtboard>
+        <DCArtboard id={id+"-desktop"} label="Desktop \u00b7 1440" width={1440} height={d}>
+          <D bp="desktop"/>
+        </DCArtboard>
+      </DCSection>
+    );
+
+    const App = () => (
+      <DesignCanvas title="K-Med Global \u00b7 Responsive Site" subtitle="9 pages \u00d7 3 breakpoints \u2014 5Medical Health Design System">
+        <Triplet id="home"         num="01" title="Home"                   M={HomeResponsive}        T={HomeResponsive}        D={HomePage}              m={4200} t={4400} d={4720} drawerOnMobile={false}/>
+        <Triplet id="treat"        num="02" title="Treatments listing"     M={TreatListResponsive}   T={TreatListResponsive}   D={TreatmentsListPage}    m={3000} t={2800} d={2400}/>
+        <Triplet id="treat-detail" num="03" title="Treatment detail"       M={TreatDetailResponsive} T={TreatDetailResponsive} D={TreatmentDetailPage}   m={4000} t={3800} d={3580}/>
+        <Triplet id="get-matched"  num="04" title="Get Matched (5-step)"   M={GetMatchedResponsive}  T={GetMatchedResponsive}  D={GetMatchedPage}        m={2200} t={2100} d={2100}/>
+        <Triplet id="why-korea"    num="05" title="Why Korea"              M={WhyKoreaResponsive}    T={WhyKoreaResponsive}    D={WhyKoreaPage}          m={3400} t={3200} d={3220}/>
+        <Triplet id="stories"      num="06" title="Stories"                M={StoriesResponsive}     T={StoriesResponsive}     D={StoriesPage}           m={2400} t={2300} d={2200}/>
+        <Triplet id="contact"      num="07" title="Contact"                M={ContactResponsive}     T={ContactResponsive}     D={ContactPage}           m={2200} t={2100} d={2050}/>
+        <Triplet id="admin-list"   num="08" title="Admin \u00b7 Lead list" M={AdminListResponsive}   T={AdminListResponsive}   D={AdminLeadListPage}     m={2000} t={1700} d={1480}/>
+        <Triplet id="admin-det"    num="09" title="Admin \u00b7 Lead detail" M={AdminDetailResponsive} T={AdminDetailResponsive} D={AdminLeadDetailPage} m={3200} t={2400} d={1820}/>
+      </DesignCanvas>
+    );
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* K-Med Responsive — overrides keyed off .kmed-page--m / .kmed-page--t on .kmed-page or .adm root., /* K-Med Responsive — overrides keyed off .adm--m / [data-bp="tablet"] on .kmed-page or .adm root., /* K-Med Responsive — overrides keyed off .kmed-page--m / .adm--t on .kmed-page or .adm root., /* K-Med Responsive — overrides keyed off .adm--m / [data-bp="tablet"] on .kmed-page or .adm root.
+   Desktop is the default (no data-bp or data-bp="desktop"). */
+
+/* ============== TABLET ============== */
+.kmed-page--t { width: 768px !important; }
+.adm--t { width: 768px !important; }
+
+.kmed-page--t .kh-pad, .adm--t .kh-pad,
+
+.kmed-page--t .section, .adm--t .section,
+
+.kmed-page--t .section--narrow { padding-left: 24px !important; padding-right: 24px !important; }, .adm--t .section--narrow { padding-left: 24px !important; padding-right: 24px !important; }
+.kmed-page--t .section { padding-top: 56px !important; padding-bottom: 56px !important; }, .adm--t .section { padding-top: 56px !important; padding-bottom: 56px !important; }
+
+.kmed-page--t .kh { padding: 16px 24px !important; gap: 14px !important; }, .adm--t .kh { padding: 16px 24px !important; gap: 14px !important; }
+.kmed-page--t .kh__brand, .adm--t .kh__brand,
+
+.kmed-page--t .kh__nav, .adm--t .kh__nav,
+
+.kmed-page--t .kh__login, .adm--t .kh__login,
+
+.kmed-page--t .kh__divider { display: none !important; }, .adm--t .kh__divider { display: none !important; }
+.kmed-page--t .kh__right { gap: 10px !important; }, .adm--t .kh__right { gap: 10px !important; }
+.kmed-page--t .kh__lang { display: none !important; }, .adm--t .kh__lang { display: none !important; }
+
+.kmed-page--t .kh-title--xl { font-size: 44px !important; line-height: 1.1 !important; }, .adm--t .kh-title--xl { font-size: 44px !important; line-height: 1.1 !important; }
+.kmed-page--t .kh-title--display { font-size: 40px !important; }, .adm--t .kh-title--display { font-size: 40px !important; }
+.kmed-page--t .kh-title { font-size: 32px !important; }, .adm--t .kh-title { font-size: 32px !important; }
+.kmed-page--t .kh-lead { font-size: 16px !important; }, .adm--t .kh-lead { font-size: 16px !important; }
+
+/* ============== MOBILE ============== */
+.kmed-page--m { width: 375px !important; }
+.adm--m { width: 375px !important; }
+
+.kmed-page--m .kh-pad, .adm--m .kh-pad,
+
+.kmed-page--m .section, .adm--m .section,
+
+.kmed-page--m .section--narrow { padding-left: 16px !important; padding-right: 16px !important; }, .adm--m .section--narrow { padding-left: 16px !important; padding-right: 16px !important; }
+.kmed-page--m .section { padding-top: 40px !important; padding-bottom: 40px !important; }, .adm--m .section { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+.kmed-page--m .kh { padding: 12px 16px !important; gap: 10px !important; }, .adm--m .kh { padding: 12px 16px !important; gap: 10px !important; }
+.kmed-page--m .kh__brand, .adm--m .kh__brand,
+
+.kmed-page--m .kh__nav, .adm--m .kh__nav,
+
+.kmed-page--m .kh__login, .adm--m .kh__login,
+
+.kmed-page--m .kh__divider, .adm--m .kh__divider,
+
+.kmed-page--m .kh__lang { display: none !important; }, .adm--m .kh__lang { display: none !important; }
+
+.kmed-page--m .kh-title--xl { font-size: 32px !important; line-height: 1.15 !important; }, .adm--m .kh-title--xl { font-size: 32px !important; line-height: 1.15 !important; }
+.kmed-page--m .kh-title--display { font-size: 26px !important; line-height: 1.2 !important; }, .adm--m .kh-title--display { font-size: 26px !important; line-height: 1.2 !important; }
+.kmed-page--m .kh-title { font-size: 22px !important; }, .adm--m .kh-title { font-size: 22px !important; }
+.kmed-page--m .kh-lead { font-size: 15px !important; }, .adm--m .kh-lead { font-size: 15px !important; }
+.kmed-page--m .eyebrow { font-size: 11px !important; }, .adm--m .eyebrow { font-size: 11px !important; }
+
+.kmed-page--m .btn { min-height: 44px; }, .adm--m .btn { min-height: 44px; }
+.kmed-page--m .btn--primary, .adm--m .btn--primary,
+
+.kmed-page--m .btn--ghost { padding: 12px 18px !important; font-size: 14px !important; }, .adm--m .btn--ghost { padding: 12px 18px !important; font-size: 14px !important; }
+
+/* ============== Mobile menu chrome ============== */
+.kh-mobile { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--kmed-line); background: #fff; }
+.kh-mobile__brand { display: flex; align-items: center; gap: 10px; }
+.kh-mobile__bm-name { font: 900 18px var(--font-display); color: var(--kmed-navy); letter-spacing: -0.01em; }
+.kh-mobile__right { display: flex; align-items: center; gap: 8px; }
+.kh-mobile__cta { padding: 10px 14px; border-radius: 999px; background: var(--kmed-aqua); color: #fff; font: 700 12px var(--font-body); border: none; min-height: 40px; }
+.kh-mobile__burger { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--kmed-line-2); border-radius: 12px; background: #fff; cursor: pointer; }
+.kh-mobile__burger span { display: block; width: 18px; height: 2px; background: var(--kmed-navy); position: relative; }
+.kh-mobile__burger span::before, .kh-mobile__burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: var(--kmed-navy); }
+.kh-mobile__burger span::before { top: -6px; }
+.kh-mobile__burger span::after { top: 6px; }
+
+/* Drawer overlay (rendered open in mockup for state visibility) */
+.kh-drawer { position: absolute; inset: 0 0 0 0; pointer-events: none; }
+.kh-drawer__scrim { position: absolute; inset: 0; background: rgba(0,87,155,0.45); }
+.kh-drawer__panel { position: absolute; left: 0; top: 0; bottom: 0; width: 78%; background: #fff; box-shadow: 0 16px 40px rgba(0,87,155,0.18); padding: 20px 18px 24px; display: flex; flex-direction: column; gap: 18px; }
+.kh-drawer__top { display: flex; align-items: center; justify-content: space-between; }
+.kh-drawer__close { width: 36px; height: 36px; border-radius: 10px; background: var(--kmed-bg-soft); display: flex; align-items: center; justify-content: center; font: 700 16px var(--font-body); color: var(--kmed-navy); cursor: pointer; }
+.kh-drawer__lang { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: var(--kmed-pink-warm); border-radius: 12px; font: 700 13px var(--font-body); color: var(--kmed-navy); cursor: pointer; min-height: 44px; }
+.kh-drawer__lang-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.kh-drawer__lang-item { padding: 10px 12px; border-radius: 10px; background: var(--kmed-bg-soft); font: 700 13px var(--font-body); color: var(--text-secondary); display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.kh-drawer__lang-item.is-active { background: var(--kmed-aqua); color: #fff; }
+.kh-drawer__group-h { font: 700 11px var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-disabled); margin: 8px 0 6px; }
+.kh-drawer__nav { display: flex; flex-direction: column; }
+.kh-drawer__nav-item { padding: 14px 8px; font: 700 17px var(--font-body); color: var(--text-primary); border-radius: 10px; cursor: pointer; min-height: 44px; display: flex; align-items: center; justify-content: space-between; text-decoration: none; }
+.kh-drawer__nav-item.is-active { background: var(--kmed-pink-warm); color: var(--kmed-navy); }
+.kh-drawer__nav-item-arr { color: var(--text-disabled); font-size: 16px; }
+.kh-drawer__foot { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--kmed-line); display: flex; flex-direction: column; gap: 8px; }
+.kh-drawer__cta { padding: 14px; border-radius: 999px; background: var(--kmed-aqua); color: #fff; font: 700 14px var(--font-body); text-align: center; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+.kh-drawer__login { font: 700 13px var(--font-body); color: var(--text-secondary); text-align: center; padding: 8px; }
+
+/* ============== Footer responsive ============== */
+.kmed-page--t .kf { padding: 56px 24px 24px !important; }, .adm--t .kf { padding: 56px 24px 24px !important; }
+.kmed-page--t .kf__grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }, .adm--t .kf__grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+.kmed-page--t .kf__deco, .adm--t .kf__deco,
+.kmed-page--t .kf__deco-blob { display: none !important; }, .adm--t .kf__deco-blob { display: none !important; }
+.kmed-page--t .kf__bottom { flex-wrap: wrap !important; gap: 14px !important; margin-top: 32px !important; }, .adm--t .kf__bottom { flex-wrap: wrap !important; gap: 14px !important; margin-top: 32px !important; }
+
+.kmed-page--m .kf { padding: 40px 16px 24px !important; }, .adm--m .kf { padding: 40px 16px 24px !important; }
+.kmed-page--m .kf__deco, .adm--m .kf__deco,
+.kmed-page--m .kf__deco-blob { display: none !important; }, .adm--m .kf__deco-blob { display: none !important; }
+.kmed-page--m .kf__grid { display: block !important; }, .adm--m .kf__grid { display: block !important; }
+.kmed-page--m .kf__about { margin-bottom: 24px; }, .adm--m .kf__about { margin-bottom: 24px; }
+.kmed-page--m .kf__bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; margin-top: 24px !important; padding-top: 20px !important; }, .adm--m .kf__bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; margin-top: 24px !important; padding-top: 20px !important; }
+
+/* Footer accordion (mobile only) */
+.kf-acc { border-top: 1px solid var(--kmed-line); }
+.kf-acc__row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; cursor: pointer; min-height: 56px; }
+.kf-acc__h { font: 700 13px var(--font-display); color: var(--kmed-navy); text-transform: uppercase; letter-spacing: 0.14em; }
+.kf-acc__chev { font: 700 16px var(--font-body); color: var(--text-secondary); }
+.kf-acc__body { padding-bottom: 16px; display: flex; flex-direction: column; gap: 4px; }
+.kf-acc__body a { font: 400 15px/1.8 var(--font-ui); color: var(--text-primary); text-decoration: none; }
+.kf-acc.is-open .kf-acc__chev { transform: rotate(180deg); }

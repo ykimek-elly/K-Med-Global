@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>K-Med Global · Print</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="kmed.css"/>
+  <link rel="stylesheet" href="kmed-responsive.css"/>
+  <link rel="stylesheet" href="kmed-responsive-2.css"/>
+  <link rel="stylesheet" href="kmed-responsive-3.css"/>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background: #f0eee9;
+      font-family: "Lato", system-ui, sans-serif;
+      color: #1A1A1A;
+    }
+    .print-doc { max-width: 1500px; margin: 0 auto; padding: 32px 24px 80px; }
+    .print-cover {
+      padding: 80px 32px 120px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 48px; break-after: page;
+    }
+    .print-cover .eyebrow {
+      font: 700 12px "Lato", sans-serif;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #00579B; margin-bottom: 24px;
+    }
+    .print-cover h1 {
+      font: 900 60px/1.05 "Lato", sans-serif;
+      letter-spacing: -0.01em; margin: 0 0 16px; color: #0a1530;
+    }
+    .print-cover .sub {
+      font: 400 19px/1.5 "Roboto", sans-serif;
+      color: #475569; max-width: 720px; margin-bottom: 56px;
+    }
+    .toc {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px 32px; max-width: 900px;
+      font: 400 14px "Roboto", sans-serif; color: #1A1A1A;
+    }
+    .toc-row {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 10px 0; border-bottom: 1px dotted rgba(0,0,0,0.15);
+    }
+    .toc-row b { font-weight: 700; color: #00579B; }
+
+    .page-section { break-before: page; margin-bottom: 32px; }
+    .page-section:first-of-type { break-before: auto; }
+    .page-header {
+      padding: 24px 0 20px; border-bottom: 2px solid #00579B;
+      margin-bottom: 32px;
+      display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+    }
+    .page-header .num {
+      font: 700 14px "Lato", sans-serif; letter-spacing: 0.16em;
+      color: #00579B; text-transform: uppercase;
+    }
+    .page-header h2 {
+      font: 900 36px/1.05 "Lato", sans-serif;
+      letter-spacing: -0.01em; margin: 4px 0 0; color: #0a1530; flex: 1;
+    }
+    .page-header .bps {
+      font: 400 12px "Roboto", sans-serif; color: #6b7280;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* Stack artboards M / T / D vertically per section */
+    .ab-row { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; margin-bottom: 40px; }
+    .ab-frame {
+      break-inside: avoid;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+      border-radius: 4px; overflow: hidden; position: relative;
+    }
+    .ab-label {
+      font: 700 11px "Lato", sans-serif; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #6b7280;
+      padding: 10px 14px; background: #f7f5f0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .ab-content { position: relative; overflow: hidden; }
+
+    @media print {
+      @page { size: A3 portrait; margin: 10mm; }
+      html, body { background: #fff !important; }
+      .print-doc { max-width: none; padding: 0; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .ab-frame { box-shadow: none; border: 1px solid rgba(0,0,0,0.12); }
+      .page-section { break-before: page; }
+      .ab-frame { break-inside: avoid-page; }
+      .kmed-card, .step, .stat, .pill, .testimonial, .ab-label,
+      .page-header, .toc-row { break-inside: avoid; }
+    }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="kmed-shared.jsx"></script>
+  <script type="text/babel" src="kmed-home.jsx"></script>
+  <script type="text/babel" src="kmed-treatments.jsx"></script>
+  <script type="text/babel" src="kmed-forms.jsx"></script>
+  <script type="text/babel" src="kmed-content.jsx"></script>
+  <script type="text/babel" src="kmed-admin.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-shell.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-pages.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-pages-2.jsx"></script>
+  <script type="text/babel" src="kmed-responsive-admin.jsx"></script>
+
+  <script type="text/babel">
+    const Artboard = ({ label, width, height, children }) => (
+      <div className="ab-frame" style={{ width: width + "px" }}>
+        <div className="ab-label">{label} &middot; {width} &times; {height}</div>
+        <div className="ab-content" style={{ width: width + "px", height: height + "px" }}>
+          {children}
+        </div>
+      </div>
+    );
+
+    const PageSection = ({ num, title, M, T, D, m, t, d }) => (
+      <section className="page-section">
+        <div className="page-header">
+          <div>
+            <div className="num">{num}</div>
+            <h2>{title}</h2>
+          </div>
+          <div className="bps">Mobile 375 &middot; Tablet 768 &middot; Desktop 1440</div>
+        </div>
+        <div className="ab-row">
+          <Artboard label="Mobile"  width={375}  height={m}><M bp="m"/></Artboard>
+          <Artboard label="Tablet"  width={768}  height={t}><T bp="t"/></Artboard>
+          <Artboard label="Desktop" width={1440} height={d}><D bp="desktop"/></Artboard>
+        </div>
+      </section>
+    );
+
+    const PAGES = [
+      { num:"01", title:"Home",                 M:"HomeResponsive",        T:"HomeResponsive",        D:"HomePage",              m:4200, t:4400, d:4720 },
+      { num:"02", title:"Treatments listing",   M:"TreatListResponsive",   T:"TreatListResponsive",   D:"TreatmentsListPage",    m:3000, t:2800, d:2400 },
+      { num:"03", title:"Treatment detail",     M:"TreatDetailResponsive", T:"TreatDetailResponsive", D:"TreatmentDetailPage",   m:4000, t:3800, d:3580 },
+      { num:"04", title:"Get Matched (5-step)", M:"GetMatchedResponsive",  T:"GetMatchedResponsive",  D:"GetMatchedPage",        m:2200, t:2100, d:2100 },
+      { num:"05", title:"Why Korea",            M:"WhyKoreaResponsive",    T:"WhyKoreaResponsive",    D:"WhyKoreaPage",          m:3400, t:3200, d:3220 },
+      { num:"06", title:"Stories",              M:"StoriesResponsive",     T:"StoriesResponsive",     D:"StoriesPage",           m:2400, t:2300, d:2200 },
+      { num:"07", title:"Contact",              M:"ContactResponsive",     T:"ContactResponsive",     D:"ContactPage",           m:2200, t:2100, d:2050 },
+      { num:"08", title:"Admin · Lead list",    M:"AdminListResponsive",   T:"AdminListResponsive",   D:"AdminLeadListPage",     m:2000, t:1700, d:1480 },
+      { num:"09", title:"Admin · Lead detail",  M:"AdminDetailResponsive", T:"AdminDetailResponsive", D:"AdminLeadDetailPage",   m:3200, t:2400, d:1820 },
+    ];
+
+    const App = () => (
+      <div className="print-doc">
+        <header className="print-cover">
+          <div className="eyebrow">K-Med Global &middot; Responsive Site Mockups</div>
+          <h1>9 pages × 3 breakpoints<br/>on the 5Medical Health design system</h1>
+          <p className="sub">
+            International medical tourism platform connecting patients with trusted Korean hospitals.
+            Each page rendered at Mobile 375, Tablet 768, and Desktop 1440 widths — same components,
+            same tokens, pure reflow.
+          </p>
+          <div className="toc">
+            {PAGES.map(p => (
+              <div className="toc-row" key={p.num}>
+                <span><b>{p.num}</b> &nbsp; {p.title}</span>
+                <span style={{color:"#6b7280"}}>M · T · D</span>
+              </div>
+            ))}
+          </div>
+        </header>
+
+        {PAGES.map(p => (
+          <PageSection
+            key={p.num}
+            num={p.num} title={p.title}
+            M={window[p.M]} T={window[p.T]} D={window[p.D]}
+            m={p.m} t={p.t} d={p.d}
+          />
+        ))}
+      </div>
+    );
+
+    (async () => {
+      try { await document.fonts.ready; } catch(e) {}
+      await new Promise(r => setTimeout(r, 500));
+      ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+      await new Promise(r => setTimeout(r, 1800));
+      window.print();
+    })();
+  </script>
+</body>
+</html>

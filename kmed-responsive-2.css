@@ -1,0 +1,247 @@
+/* kmed-responsive-2.css — Mobile fix pack
+   - Enforce 375px viewport with 16px side padding (343 inner)
+   - Drawer rendered as overlay only when .is-open
+   - Multi-column inner layouts → single col / 2x2 on mobile
+   - Hero overlays stack below
+*/
+
+/* ============== Hard width clamp ============== */
+.kmed-page,
+.adm {
+  box-sizing: border-box;
+  overflow: hidden; /* clip any stray content past frame */
+}
+.kmed-page *,
+.adm * { box-sizing: border-box; }
+
+.kmed-page--m,
+
+.adm--m {
+  width: 375px !important;
+  max-width: 375px !important;
+}
+.kmed-page--m img, .adm--m img,
+
+.kmed-page--m svg, .adm--m svg,
+
+.kmed-page--m .tcard__media, .adm--m .tcard__media,
+
+.kmed-page--m .hero-illus, .adm--m .hero-illus,
+
+.kmed-page--m picture { max-width: 100% !important; }, .adm--m picture { max-width: 100% !important; }
+
+/* Any direct child section/div uses content-box padding sums correctly */
+.kmed-page--m section, .adm--m section,
+
+.kmed-page--m header, .adm--m header,
+
+.kmed-page--m footer { max-width: 375px; }, .adm--m footer { max-width: 375px; }
+
+/* ============== Header bar ============== */
+.kh--m, .kh--t { background: #fff; border-bottom: 1px solid var(--kmed-line); }
+.kh-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; gap: 12px;
+}
+.kh--t .kh-bar { padding: 14px 24px; }
+.kh-mobile-actions { display: flex; align-items: center; gap: 8px; }
+
+.kh-cta-icon {
+  width: 44px; height: 44px; border-radius: 12px; border: none;
+  background: var(--kmed-aqua); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.kh-cta-compact {
+  height: 40px; padding: 0 14px; border-radius: 999px; border: none;
+  background: var(--kmed-aqua); color: #fff;
+  font: 700 13px var(--font-body);
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+}
+.kh-burger {
+  width: 44px; height: 44px; border: 1.5px solid var(--kmed-line-2);
+  border-radius: 12px; background: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.kh-burger span {
+  display: block; width: 18px; height: 2px; background: var(--kmed-navy); position: relative;
+}
+.kh-burger span::before, .kh-burger span::after {
+  content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: var(--kmed-navy);
+}
+.kh-burger span::before { top: -6px; }
+.kh-burger span::after  { top:  6px; }
+
+/* ============== Drawer overlay (only when .is-open) ============== */
+.kh-drawer { display: none; }
+.kh-drawer.is-open {
+  display: block;
+  position: absolute; top: 100%; left: 0; right: 0;
+  height: calc(100vh); max-height: 720px;
+  z-index: 50;
+}
+.kh-drawer__scrim {
+  position: absolute; inset: 0;
+  background: rgba(10,21,48,0.45);
+}
+.kh-drawer__panel {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 88%; max-width: 320px;
+  background: #fff; padding: 18px 16px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+  box-shadow: 12px 0 32px rgba(10,21,48,0.18);
+  overflow-y: auto;
+}
+.kh-drawer__top {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.kh-drawer__close {
+  width: 36px; height: 36px; border: none; border-radius: 10px;
+  background: var(--kmed-bg-soft); color: var(--kmed-navy);
+  font: 700 20px var(--font-body); cursor: pointer;
+}
+.kh-drawer__lang {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 12px 14px; background: var(--kmed-pink-warm); border-radius: 12px;
+}
+.kh-drawer__lang > span { font: 700 12px var(--font-body); color: var(--kmed-navy); letter-spacing: 0.06em; text-transform: uppercase; }
+.kh-drawer__lang-chips {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.kh-drawer__lang-chip {
+  padding: 8px 10px; border-radius: 8px; background: #fff;
+  font: 700 13px var(--font-body); color: var(--text-secondary);
+  text-align: center; min-height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+.kh-drawer__lang-chip.is-on { background: var(--kmed-aqua); color: #fff; }
+.kh-drawer__nav { display: flex; flex-direction: column; gap: 2px; }
+.kh-drawer__item {
+  padding: 14px 12px; border-radius: 10px;
+  font: 700 16px var(--font-body); color: var(--text-primary);
+  display: flex; align-items: center; justify-content: space-between;
+  text-decoration: none; min-height: 48px;
+}
+.kh-drawer__item.is-active { background: var(--kmed-pink-warm); color: var(--kmed-navy); }
+.kh-drawer__item .chev { color: var(--text-disabled); font: 700 18px var(--font-body); }
+
+.kh-drawer__foot {
+  margin-top: auto; padding-top: 14px;
+  border-top: 1px solid var(--kmed-line);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.kh-drawer__cta {
+  height: 48px; border: none; border-radius: 999px;
+  background: var(--kmed-aqua); color: #fff;
+  font: 700 14px var(--font-body); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.kh-drawer__login {
+  text-align: center; font: 700 13px var(--font-body);
+  color: var(--text-secondary); text-decoration: none; padding: 8px;
+}
+
+/* ============== Mobile content reflow guard ============== */
+.kmed-page--m .stat, .adm--m .stat,
+
+.kmed-page--m .hero-stat, .adm--m .hero-stat,
+
+.kmed-page--m .lang-strip, .adm--m .lang-strip,
+
+.kmed-page--m .hero-overlay { position: static !important; }, .adm--m .hero-overlay { position: static !important; }
+
+.kmed-page--m .hero-overlay, .adm--m .hero-overlay,
+
+.kmed-page--m .hero-stats-overlay, .adm--m .hero-stats-overlay,
+
+.kmed-page--m .lang-strip-overlay , .adm--m .lang-strip-overlay  {
+  position: static !important;
+  width: 100% !important;
+  margin-top: 16px !important;
+  transform: none !important;
+}
+
+/* Force any rogue 2/3/4-col grid to single-column on mobile */
+.kmed-page--m .row, .adm--m .row,
+
+.kmed-page--m .grid-2, .adm--m .grid-2,
+
+.kmed-page--m .grid-3, .adm--m .grid-3,
+
+.kmed-page--m .grid-4, .adm--m .grid-4,
+
+.kmed-page--m .form-row, .adm--m .form-row,
+
+.kmed-page--m .stats-row , .adm--m .stats-row  {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+}
+
+/* 2x2 for stats on mobile (3 cards becomes 2+1) */
+.kmed-page--m .stats-m, .adm--m .stats-m,
+
+.kmed-page--m .hero-stats , .adm--m .hero-stats  {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+/* Make every form field full width */
+.kmed-page--m input[type="text"], .adm--m input[type="text"],
+
+.kmed-page--m input[type="email"], .adm--m input[type="email"],
+
+.kmed-page--m input[type="tel"], .adm--m input[type="tel"],
+
+.kmed-page--m input[type="number"], .adm--m input[type="number"],
+
+.kmed-page--m textarea, .adm--m textarea,
+
+.kmed-page--m select, .adm--m select,
+
+.kmed-page--m .field, .adm--m .field,
+
+.kmed-page--m .input , .adm--m .input  {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 44px;
+  box-sizing: border-box !important;
+}
+
+/* Buttons full width within constrained content */
+.kmed-page--m .btn { max-width: 100%; }, .adm--m .btn { max-width: 100%; }
+
+/* Chip rows scroll horizontally instead of overflowing */
+.kmed-page--m .chiprow , .adm--m .chiprow  {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  gap: 8px !important;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.kmed-page--m .chiprow::-webkit-scrollbar { display: none; }, .adm--m .chiprow::-webkit-scrollbar { display: none; }
+.kmed-page--m .chiprow .chip { flex: none; white-space: nowrap; }, .adm--m .chiprow .chip { flex: none; white-space: nowrap; }
+
+/* Swipe rails respect width */
+.kmed-page--m .swipe , .adm--m .swipe  {
+  display: flex; gap: 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 4px 0 12px;
+  margin: 0 -16px; padding-left: 16px; padding-right: 16px;
+  scrollbar-width: none;
+}
+.kmed-page--m .swipe::-webkit-scrollbar { display: none; }, .adm--m .swipe::-webkit-scrollbar { display: none; }
+.kmed-page--m .swipe > * { flex: 0 0 88%; scroll-snap-align: start; }, .adm--m .swipe > * { flex: 0 0 88%; scroll-snap-align: start; }
+
+/* Cards never wider than container */
+.kmed-page--m .tcard, .adm--m .tcard,
+
+.kmed-page--m .story, .adm--m .story,
+
+.kmed-page--m .lead-card, .adm--m .lead-card,
+
+.kmed-page--m .kmed-card { max-width: 100%; }, .adm--m .kmed-card { max-width: 100%; }
+
+/* Tablet drawer width */
+.kh--t .kh-drawer__panel { width: 360px; }

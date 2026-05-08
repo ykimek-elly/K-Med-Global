@@ -1,0 +1,220 @@
+/* kmed-responsive-3.css — Padding gutters + Tablet grid pack
+   Adds CSS for the className conventions used by responsive components
+   (sec-m / sec-t, stats-m / stats-t, hero-m / hero-t, h2-*, lead-*, tlist-*,
+    grid-t-2, phero--*, wizard--*, steps, cta-banner-m, etc.) and ensures
+    proper padding gutters on every section. */
+
+/* ============================================================
+   GUTTERS (Mobile / Tablet)
+   ============================================================ */
+
+/* Mobile: 16px side padding everywhere — sections, hero, page hero, wizard, CTA */
+.kmed-page--m .sec-m,
+.kmed-page--m .hero-m,
+.kmed-page--m .phero--m,
+.kmed-page--m .wizard--m,
+.kmed-page--m .cta-banner-m,
+.adm--m       .sec-m,
+.adm--m       .adm-bar,
+.adm--m       .adm-section {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.kmed-page--m .sec-m { padding-top: 32px; padding-bottom: 32px; }
+.kmed-page--m .hero-m { padding-top: 28px; padding-bottom: 32px; }
+.kmed-page--m .phero--m { padding-top: 24px; padding-bottom: 24px; }
+.kmed-page--m .wizard--m { padding-top: 24px; padding-bottom: 32px; }
+.kmed-page--m .cta-banner-m { padding: 24px 18px; margin: 0 16px; border-radius: 18px;
+  background: linear-gradient(135deg, var(--kmed-navy), var(--kmed-aqua)); color: #fff; }
+.kmed-page--m .cta-banner-m h3 { font: 900 22px/1.2 var(--font-display); margin: 0 0 6px; }
+.kmed-page--m .cta-banner-m p  { font: 400 14px/1.5 var(--font-body); margin: 0 0 16px; opacity: .92; }
+
+/* Tablet: 28px side padding — 2x what mobile uses */
+.kmed-page--t .sec-t,
+.kmed-page--t .hero-t,
+.kmed-page--t .phero--t,
+.kmed-page--t .wizard,
+.kmed-page--t .wizard--t,
+.kmed-page--t .cta-banner-m,
+.adm--t       .sec-t,
+.adm--t       .adm-bar,
+.adm--t       .adm-section {
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+}
+.kmed-page--t .sec-t { padding-top: 48px; padding-bottom: 48px; }
+.kmed-page--t .hero-t { padding-top: 40px; padding-bottom: 44px; }
+.kmed-page--t .phero--t { padding-top: 32px; padding-bottom: 32px; }
+.kmed-page--t .wizard--t { padding-top: 36px; padding-bottom: 48px; }
+.kmed-page--t .cta-banner-m { padding: 32px 28px; margin: 0 28px; border-radius: 20px;
+  background: linear-gradient(135deg, var(--kmed-navy), var(--kmed-aqua)); color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.kmed-page--t .cta-banner-m h3 { font: 900 28px/1.15 var(--font-display); margin: 0 0 6px; }
+.kmed-page--t .cta-banner-m p  { font: 400 16px/1.5 var(--font-body); margin: 0; opacity: .92; }
+
+/* ============================================================
+   TYPOGRAPHY HELPERS (sec titles, lead, page hero)
+   ============================================================ */
+.h2-m { font: 900 24px/1.18 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
+.h2-t { font: 900 32px/1.18 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
+.lead-m { font: 400 14px/1.55 var(--font-body); color: var(--text-secondary); }
+.lead-t { font: 400 16px/1.55 var(--font-body); color: var(--text-secondary); }
+
+.kmed-page--m .hero-m h1 { font: 900 32px/1.12 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; margin: 8px 0 12px; }
+.kmed-page--m .hero-m p  { font: 400 15px/1.55 var(--font-body); color: var(--text-secondary); margin: 0 0 18px; }
+.kmed-page--m .hero-illus--m { width: 100%; height: 220px; border-radius: 18px; margin-top: 22px;
+  background: radial-gradient(circle at 30% 30%, var(--kmed-aqua-soft), transparent 60%),
+              radial-gradient(circle at 70% 70%, var(--kmed-pink-warm), transparent 65%),
+              linear-gradient(135deg, var(--kmed-bg-soft), #fff); }
+
+.kmed-page--t .hero-t { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.kmed-page--t .hero-t h1 { font: 900 44px/1.1 var(--font-display); margin: 6px 0 14px; letter-spacing: -0.01em; }
+.kmed-page--t .hero-t p  { font: 400 17px/1.55 var(--font-body); color: var(--text-secondary); margin: 0 0 22px; }
+.kmed-page--t .hero-t__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.kmed-page--t .hero-illus--t { width: 100%; aspect-ratio: 1/1; border-radius: 24px;
+  background: radial-gradient(circle at 30% 30%, var(--kmed-aqua-soft), transparent 60%),
+              radial-gradient(circle at 70% 70%, var(--kmed-pink-warm), transparent 65%),
+              linear-gradient(135deg, var(--kmed-bg-soft), #fff); }
+
+/* Page hero (breadcrumbs + title) */
+.phero { background: linear-gradient(180deg, var(--kmed-pink-warm), #fff); position: relative; overflow: hidden; }
+.phero__pinks { position: absolute; right: -60px; top: -60px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, var(--kmed-aqua-soft), transparent 70%); opacity: .6; }
+.phero__crumbs { font: 400 12px var(--font-body); color: var(--text-secondary); display: flex; gap: 6px; align-items: center; margin-bottom: 8px; position: relative; }
+.phero__crumbs a { color: var(--kmed-navy); text-decoration: none; font-weight: 700; }
+.phero__title { font: 900 32px/1.15 var(--font-display); color: var(--text-primary); margin: 0 0 8px; letter-spacing: -0.01em; position: relative; }
+.phero--t .phero__title { font-size: 44px; }
+.phero__sub { font: 400 14px/1.55 var(--font-body); color: var(--text-secondary); margin: 0; position: relative; }
+.phero--t .phero__sub { font-size: 16px; }
+
+/* ============================================================
+   GRID PATTERNS — Mobile + Tablet
+   ============================================================ */
+
+/* Stats — mobile: 2x2 (or 3 across in row). Tablet: horizontal 3-up */
+.stats-m { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.stats-m .stat { padding: 14px 10px; background: var(--kmed-bg-soft); border-radius: 14px; text-align: center; }
+.stats-m .stat__num { font: 900 22px/1 var(--font-display); color: var(--kmed-green-dark); }
+.stats-m .stat__lbl { font: 400 11px var(--font-body); color: var(--text-secondary); margin-top: 4px; }
+
+.stats-t { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.stats-t .stat { padding: 22px 18px; background: var(--kmed-bg-soft); border-radius: 16px; }
+.stats-t .stat__num { font: 900 36px/1 var(--font-display); color: var(--kmed-green-dark); }
+.stats-t .stat__lbl { font: 400 14px var(--font-body); color: var(--text-secondary); margin-top: 6px; }
+
+/* 2-col tablet grid helper */
+.grid-t-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* Treatment list — tablet 2-col, mobile single-column list */
+.tlist-m { display: flex; flex-direction: column; gap: 14px; }
+.tlist-t { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Treatment card */
+.tcard { background: #fff; border: 1px solid var(--kmed-line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.tcard__media { position: relative; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--kmed-aqua), var(--kmed-navy)); display: flex; align-items: center; justify-content: center; }
+.tcard__pin { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.95); font: 700 10px var(--font-body); color: var(--kmed-navy); letter-spacing: 0.06em; text-transform: uppercase; }
+.tcard__body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.tcard__title { font: 700 16px var(--font-display); color: var(--text-primary); margin: 0; }
+.tcard__desc { font: 400 13px/1.5 var(--font-body); color: var(--text-secondary); margin: 0; flex: 1; }
+.tcard__foot { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--kmed-line); }
+.tcard__price { font: 700 14px var(--font-body); color: var(--kmed-green-dark); display: flex; align-items: baseline; gap: 6px; }
+.tcard__price small { font: 400 11px var(--font-body); color: var(--text-secondary); }
+
+/* How-it-works vertical stepper (mobile) */
+.steps-vert { display: flex; flex-direction: column; gap: 16px; }
+.stepv { display: flex; gap: 14px; }
+.stepv__rail { display: flex; flex-direction: column; align-items: center; }
+.stepv__num { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--kmed-aqua), var(--kmed-navy)); color: #fff; font: 900 13px var(--font-display); display: flex; align-items: center; justify-content: center; flex: none; }
+.stepv__line { flex: 1; width: 2px; background: var(--kmed-line); margin-top: 6px; min-height: 20px; }
+.stepv__body { flex: 1; padding: 4px 0 16px; }
+.stepv__body h4 { font: 700 16px var(--font-display); margin: 8px 0 4px; }
+.stepv__body p  { font: 400 13px/1.5 var(--font-body); color: var(--text-secondary); margin: 0; }
+
+/* Story card */
+.story { padding: 22px 20px; background: #fff; border: 1px solid var(--kmed-line); border-radius: 18px; display: flex; flex-direction: column; gap: 14px; }
+.story-m { padding: 20px 18px; }
+.story__quote { font: 400 14px/1.55 var(--font-body); color: var(--text-primary); }
+.story__patient { display: flex; align-items: center; gap: 12px; }
+.story__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--kmed-aqua-soft), var(--kmed-pink-warm)); display: flex; align-items: center; justify-content: center; font: 900 12px var(--font-display); color: var(--kmed-navy); }
+.story__name { font: 700 13px var(--font-body); color: var(--text-primary); }
+.story__meta { font: 400 11px var(--font-body); color: var(--text-secondary); }
+.story__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.story__tag { padding: 4px 10px; border-radius: 999px; background: var(--kmed-bg-soft); font: 700 11px var(--font-body); color: var(--text-secondary); }
+
+/* Trust pills */
+.trust-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.trust-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: var(--kmed-bg-soft); font: 700 12px var(--font-body); color: var(--kmed-navy); border: 1px solid var(--kmed-line); }
+.trust-pill--green { background: rgba(76,175,80,0.08); color: #357A38; border-color: rgba(76,175,80,0.25); }
+.trust-pill--pink { background: var(--kmed-pink-warm); color: #BE185D; border-color: rgba(233,30,99,0.18); }
+
+/* Eyebrow */
+.eyebrow { font: 700 11px var(--font-display); color: var(--kmed-navy); letter-spacing: 0.16em; text-transform: uppercase; }
+
+/* Chip / chiprow */
+.chip { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--kmed-line); font: 700 12px var(--font-body); color: var(--text-primary); white-space: nowrap; min-height: 36px; }
+
+/* Wizard step bar */
+.steps { display: flex; align-items: center; gap: 0; }
+.step { display: flex; align-items: center; gap: 10px; flex: 1; }
+.step__dot { width: 32px; height: 32px; border-radius: 50%; background: #fff; border: 1.5px solid var(--kmed-line); font: 900 13px var(--font-display); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; flex: none; }
+.step.is-active .step__dot { background: var(--kmed-navy); color: #fff; border-color: var(--kmed-navy); }
+.step.is-done .step__dot { background: var(--kmed-green-dark); color: #fff; border-color: var(--kmed-green-dark); }
+.step__lbl { font: 700 12px var(--font-body); color: var(--text-secondary); }
+.step.is-active .step__lbl { color: var(--text-primary); }
+.step__bar { flex: 1; height: 2px; background: var(--kmed-line); }
+.steps--m { gap: 6px; }
+.steps--m .step__bar { display: none; }
+.steps--m .step__dot { width: 28px; height: 28px; font-size: 11px; }
+.kmed-page--m .wizard--m h2 { font: 900 22px/1.2 var(--font-display); margin: 8px 0 8px; }
+.kmed-page--t .wizard--t h2 { font: 900 30px/1.2 var(--font-display); margin: 8px 0 10px; }
+
+/* Check pill (multi-select) */
+.checkpill { display: flex; align-items: center; gap: 12px; padding: 14px 14px; border: 1.5px solid var(--kmed-line); border-radius: 14px; background: #fff; cursor: pointer; min-height: 52px; font: 700 14px var(--font-body); color: var(--text-primary); }
+.checkpill .check { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--kmed-line-2); display: flex; align-items: center; justify-content: center; flex: none; }
+.checkpill.is-on { border-color: var(--kmed-aqua); background: rgba(105,210,236,0.08); }
+.checkpill.is-on .check { background: var(--kmed-aqua); border-color: var(--kmed-aqua); }
+
+/* Section ====================== */
+.section--soft { background: var(--kmed-bg-soft); }
+
+/* ============================================================
+   Footer (responsive shell)
+   ============================================================ */
+.kf--m, .kf--t { background: #fff; border-top: 1px solid var(--kmed-line); }
+.kf--m { padding: 32px 16px 20px; }
+.kf--t { padding: 48px 28px 24px; }
+.kf__grid { display: grid; gap: 20px; }
+.kf--t .kf__grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; }
+.kf--t .kf__about { grid-column: 1 / -1; display: flex; gap: 24px; align-items: flex-start; }
+.kf--m .kf__grid { grid-template-columns: 1fr; }
+.kf__desc { font: 400 13px/1.55 var(--font-body); color: var(--text-secondary); margin: 10px 0 14px; }
+.kf__cert { padding: 14px; background: var(--kmed-bg-soft); border-radius: 12px; border: 1px solid var(--kmed-line); display: flex; flex-direction: column; gap: 4px; }
+.kf__cert-label { font: 700 10px var(--font-body); color: var(--kmed-navy); letter-spacing: 0.12em; text-transform: uppercase; }
+.kf__cert-value { font: 900 14px var(--font-display); color: var(--text-primary); }
+.kf__cert-meta  { font: 400 11px/1.4 var(--font-body); color: var(--text-secondary); }
+.kf__col-h { font: 700 13px var(--font-display); color: var(--kmed-navy); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.kf__col a { display: block; font: 400 14px/1.9 var(--font-body); color: var(--text-primary); text-decoration: none; }
+.kf--m .kf__col-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-top: 1px solid var(--kmed-line); font: 700 13px var(--font-display); color: var(--kmed-navy); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; min-height: 48px; }
+.kf--m .kf__col-head .chev { color: var(--text-secondary); }
+.kf--m .kf__links { padding-bottom: 14px; display: flex; flex-direction: column; gap: 4px; }
+.kf__bottom { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--kmed-line); font: 400 12px var(--font-body); color: var(--text-secondary); flex-wrap: wrap; }
+.kf__socials { display: flex; gap: 8px; }
+.kf__social { width: 32px; height: 32px; border-radius: 50%; background: var(--kmed-bg-soft); display: flex; align-items: center; justify-content: center; font: 700 13px var(--font-body); color: var(--kmed-navy); }
+
+/* ============================================================
+   PAGE-SPECIFIC TABLET GRID UPGRADES (per spec)
+   ============================================================ */
+
+/* 06 Stories — tablet 2-col (was rendering 1-col) */
+.kmed-page--t [data-screen-label*="Stories"] .grid-t-2,
+.kmed-page--t .stories-grid { grid-template-columns: 1fr 1fr !important; }
+
+/* 05 Why Korea top stats — already use grid-t-2 in the JSX, ensure 3-up if marked */
+.kmed-page--t .stats-row { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 14px !important; }
+
+/* Treatments listing on tablet — 2-col in case .tlist-t isn't applied */
+.kmed-page--t .tlist-t,
+.kmed-page--t .tlist-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+
+/* Home treatments on tablet — 2-col regardless of source */
+.kmed-page--t .home-treats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
