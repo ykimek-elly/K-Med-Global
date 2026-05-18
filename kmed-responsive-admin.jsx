@@ -259,11 +259,11 @@ const AdminDetailResponsive = ({ bp = "m" }) => {
       {/* Activity */}
       <div className="adm-card" style={{padding:isM?16:20, marginBottom:14}}>
         <div style={{font:"700 11px var(--font-display)", color:"var(--kmed-navy)", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:14}}>Activity</div>
-        <div style={{position:"relative", paddingLeft:28}}>
+        <div style={{position:"relative", paddingLeft:34}}>
           <div style={{position:"absolute", left:12, top:14, bottom:14, width:2, background:"var(--kmed-line)"}}></div>
           {timeline.map((e,i)=>(
             <div key={i} style={{position:"relative", paddingBottom: i<timeline.length-1?16:0}}>
-              <div style={{position:"absolute", left:-22, top:0, width:26, height:26, borderRadius:"50%", background:"#fff", border:`2px solid ${e.c}`, display:"flex", alignItems:"center", justifyContent:"center"}}><Icon name={e.icon} size={12} color={e.c}/></div>
+              <div style={{position:"absolute", left:-34, top:0, width:26, height:26, borderRadius:"50%", background:"#fff", border:`2px solid ${e.c}`, display:"flex", alignItems:"center", justifyContent:"center"}}><Icon name={e.icon} size={12} color={e.c}/></div>
               <div style={{display:"flex", flexDirection: isM?"column":"row", alignItems: isM?"flex-start":"baseline", justifyContent: isM?"flex-start":"space-between", gap:isM?2:8, marginBottom:4}}>
                 <div style={{font:"700 13px var(--font-body)"}}>{e.t} <span style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>· {e.who}</span></div>
                 <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)"}}>{e.when}</div>

@@ -30,7 +30,7 @@
 
 /* ============== MOBILE ============== */
 .kmed-page--m { width: 375px !important; }
-.adm--m { width: 375px !important; }
+.adm--m { width: 375px !important; padding-left: 16px !important; padding-right: 16px !important; }
 
 .kmed-page--m .kh-pad, .adm--m .kh-pad,
 

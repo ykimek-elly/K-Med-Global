@@ -232,6 +232,14 @@ body { background: #fff; font-family: var(--font-body); color: var(--text-primar
 .adm-stat__delta { font: 700 12px var(--font-body); color: var(--kmed-green-dark); }
 .adm-stat__delta.is-down { color: var(--kmed-pink); }
 
+/* Mobile admin lead card (responsive admin list) */
+.lead-card { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #fff; border: 1px solid var(--kmed-line); border-radius: 16px; box-sizing: border-box; }
+.lead-card__top { display: flex; align-items: flex-start; gap: 12px; }
+.lead-card__top .pill { flex: none; align-self: flex-start; }
+.lead-card__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--kmed-aqua), var(--kmed-navy)); color: #fff; display: flex; align-items: center; justify-content: center; font: 700 13px var(--font-body); flex: none; }
+.lead-card__meta { display: flex; align-items: baseline; gap: 6px; font: 400 13px var(--font-body); color: var(--text-secondary); }
+.lead-card__meta strong { color: var(--text-primary); font-weight: 700; margin-right: 5px; }
+
 /* ===== Section helpers shared across pages ===== */
 .row { display: flex; }
 .row--gap-3 { gap: 12px; }
