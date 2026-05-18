@@ -388,36 +388,38 @@ const ClinicMark = ({ kind }) => {
 // SECTIONS
 // ============================================================================
 
-const DetailHeroVisual = () => (
+const DetailHeroVisual = () => {
+  const t = tk(T_TREAT, useKmedLang());
+  return (
   <section style={{position:"relative", padding:"56px 80px 64px", background:"linear-gradient(180deg, var(--kmed-pink-warm) 0%, #fff 100%)", overflow:"hidden"}}>
     <div style={{position:"absolute", right:-180, top:-100, width:520, height:520, borderRadius:"50%", border:"1px solid var(--kmed-aqua-soft)"}}></div>
     <div style={{position:"absolute", right:-80, top:60, width:340, height:340, borderRadius:"50%", background:"var(--gradient-soft)", opacity:.25}}></div>
     <div className="phero__crumbs" style={{position:"relative"}}>
-      <a href="#" onClick={e=>e.preventDefault()}>Home</a><span>›</span>
-      <a href="#" onClick={e=>e.preventDefault()}>Treatments</a><span>›</span>
-      <span style={{color:"var(--text-primary)", fontWeight:700}}>Dermatology & K-Beauty</span>
+      <a href="#" onClick={e=>e.preventDefault()}>{t.crumbHome}</a><span>›</span>
+      <a href="#" onClick={e=>e.preventDefault()}>{t.crumbTreat}</a><span>›</span>
+      <span style={{color:"var(--text-primary)", fontWeight:700}}>{t.detCrumb}</span>
     </div>
     <div style={{position:"relative", display:"grid", gridTemplateColumns:"1.3fr 1fr", gap:48, alignItems:"center", marginTop:24}}>
       <div>
         <div style={{display:"flex", gap:8, marginBottom:18}}>
-          <span className="trust-pill trust-pill--pink"><Icon name="sparkle" size={14} color="#E91E63"/>K-Beauty Specialty</span>
-          <span className="trust-pill"><Icon name="user" size={14} color="#00579B"/>32 partner clinics</span>
-          <span className="trust-pill trust-pill--green"><Icon name="cal" size={14} color="#357A38"/>3–7 day program</span>
+          <span className="trust-pill trust-pill--pink"><Icon name="sparkle" size={14} color="#E91E63"/>{t.detPillKB}</span>
+          <span className="trust-pill"><Icon name="user" size={14} color="#00579B"/>{t.detPillPartners}</span>
+          <span className="trust-pill trust-pill--green"><Icon name="cal" size={14} color="#357A38"/>{t.detPillProg}</span>
         </div>
-        <h1 style={{font:"900 56px/1.1 var(--font-display)", margin:"0 0 16px", letterSpacing:"-0.01em"}}>Dermatology & K-Beauty</h1>
+        <h1 style={{font:"900 56px/1.1 var(--font-display)", margin:"0 0 16px", letterSpacing:"-0.01em"}}>{t.detTitle}</h1>
         <p style={{font:"400 19px/1.6 var(--font-body)", color:"var(--text-secondary)", margin:"0 0 28px", maxWidth:620}}>
-          Travel-friendly dermatology programs combining medical-grade treatments with the routines Korean clinics are known for — supervised by board-certified specialists, tailored to your skin type, schedule, and recovery window.
+          {t.detSub}
         </p>
         <div style={{display:"flex", alignItems:"center", gap:16}}>
-          <button className="btn btn--primary btn--primary-lg">Estimate request <Icon name="arrow" size={16} color="#fff"/></button>
-          <button className="btn btn--ghost"><Icon name="chat" size={14}/>Chat with coordinator</button>
+          <button className="btn btn--primary btn--primary-lg">{t.detCtaEstimate} <Icon name="arrow" size={16} color="#fff"/></button>
+          <button className="btn btn--ghost"><Icon name="chat" size={14}/>{t.detCtaChat}</button>
         </div>
         <div style={{display:"flex", gap:24, marginTop:32, paddingTop:24, borderTop:"1px solid var(--kmed-line)"}}>
           {[
-            {k:"price",      lbl:"Estimate range", val:"USD 480 – 2,400", color:"var(--kmed-green-dark)"},
-            {k:"stay",       lbl:"Length of stay", val:"3 – 7 days"},
-            {k:"anesthesia", lbl:"Anesthesia",     val:"Topical only"},
-            {k:"recovery",   lbl:"Recovery",       val:"0 – 3 days"},
+            {k:"price",      lbl:t.statEstimate, val:"USD 480 – 2,400",     color:"var(--kmed-green-dark)"},
+            {k:"stay",       lbl:t.statStay,     val:t.statStayValue},
+            {k:"anesthesia", lbl:t.statAnesthesia, val:t.statAnesthesiaValue},
+            {k:"recovery",   lbl:t.statRecovery, val:t.statRecoveryValue},
           ].map((m,i)=>(
             <div key={i}>
               <div style={{display:"flex", alignItems:"center", gap:6, marginBottom:6}}>
@@ -434,71 +436,74 @@ const DetailHeroVisual = () => (
       <div className="surface" style={{padding:"24px", borderRadius:24, position:"relative"}}>
         <div style={{borderRadius:18, aspectRatio:"4/3", overflow:"hidden", position:"relative", boxShadow:"0 16px 40px -12px rgba(10,21,48,0.12)"}}>
           <KBeautyStillLife/>
-          <div style={{position:"absolute", left:18, top:18, padding:"6px 12px", borderRadius:999, background:"rgba(255,255,255,0.96)", color:"var(--kmed-pink)", font:"700 12px var(--font-body)", letterSpacing:"0.08em", textTransform:"uppercase", boxShadow:"0 2px 6px rgba(0,0,0,0.06)"}}>K-Beauty</div>
+          <div style={{position:"absolute", left:18, top:18, padding:"6px 12px", borderRadius:999, background:"rgba(255,255,255,0.96)", color:"var(--kmed-pink)", font:"700 12px var(--font-body)", letterSpacing:"0.08em", textTransform:"uppercase", boxShadow:"0 2px 6px rgba(0,0,0,0.06)"}}>{t.kbPin}</div>
         </div>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginTop:20}}>
           <div style={{padding:"14px 16px", borderRadius:12, background:"var(--kmed-bg-soft)"}}>
-            <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>Patient rating</div>
+            <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>{t.rateLabel}</div>
             <div style={{display:"flex", alignItems:"center", gap:6, marginTop:4}}>
               <Icon name="star" size={16} color="#F5B400"/>
               <span style={{font:"700 16px var(--font-body)"}}>4.8</span>
-              <span style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>(1,247 reviews)</span>
+              <span style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>{t.rateReviews}</span>
             </div>
           </div>
           <div style={{padding:"14px 16px", borderRadius:12, background:"var(--kmed-bg-soft)"}}>
-            <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>Languages</div>
+            <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>{t.langLabel}</div>
             <div style={{font:"700 14px var(--font-body)", marginTop:4}}>EN · 中文 · 日本語 · 繁體</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const DetailBodyVisual = () => {
+  const t = tk(T_TREAT, useKmedLang());
   const procedures = [
-    { name:"Initial dermatology consult",     dur:"45 min",  price:"USD 80–180",        body:"Skin scan, history review, treatment plan.",            kind:"consult" },
-    { name:"Medical-grade facial protocol",   dur:"60 min",  price:"USD 120–340",       body:"Cleansing, peeling, hydration mask, LED.",              kind:"facial" },
-    { name:"Laser toning & pigmentation",     dur:"30 min",  price:"USD 220–680 / session", body:"Q-switched and pico-laser for tone evening.",        kind:"laser" },
-    { name:"HIFU / Ulthera lifting",          dur:"45 min",  price:"USD 480–1,800",     body:"Targeted lifting for jawline & under-eye.",             kind:"hifu" },
-    { name:"Post-care kit & follow-up",       dur:"included",price:"included",          body:"Take-home protocol + 30-day teleconsult.",              kind:"kit" },
+    { name:t.proc1Name, dur:t.proc1Dur, price:t.proc1Price, body:t.proc1Body, kind:"consult" },
+    { name:t.proc2Name, dur:t.proc2Dur, price:t.proc2Price, body:t.proc2Body, kind:"facial" },
+    { name:t.proc3Name, dur:t.proc3Dur, price:t.proc3Price, body:t.proc3Body, kind:"laser" },
+    { name:t.proc4Name, dur:t.proc4Dur, price:t.proc4Price, body:t.proc4Body, kind:"hifu" },
+    { name:t.proc5Name, dur:t.proc5Dur, price:t.proc5Price, body:t.proc5Body, kind:"kit" },
   ];
   const faqs = [
-    { q:"Will my results match what I see online?", a:"We avoid showing before/after marketing imagery. Your dermatologist will discuss realistic expectations after reviewing your skin in person." },
-    { q:"How is the estimate calculated?", a:"After you submit photos and history, the hospital's medical team prepares a personalized estimate. There is no automated calculator — every quote is doctor-reviewed." },
-    { q:"What if I have sensitive skin or rosacea?", a:"Conservative-only protocols are available; the consultation will rule out treatments that aren't appropriate for your skin." },
-    { q:"Can the program fit a 4-day trip?", a:"Yes. We design plans around 3, 5, and 7-day windows and pace treatments accordingly." },
+    { q:t.faq1Q, a:t.faq1A },
+    { q:t.faq2Q, a:t.faq2A },
+    { q:t.faq3Q, a:t.faq3A },
+    { q:t.faq4Q, a:t.faq4A },
   ];
   const docs = [
-    {n:"Dr. Ji-won Park",   role:"Dermatologist · 14 yrs",            langs:"EN · 한국어",         av:"cross"},
-    {n:"Dr. Hyun Choi",     role:"Dermatologist · 11 yrs",            langs:"EN · 中文 · 한국어",  av:"ecg"},
-    {n:"Dr. Min-seo Kang",  role:"Aesthetic Dermatology · 9 yrs",     langs:"EN · 日本語 · 한국어", av:"waveform"},
+    {n:t.dr1Name, role:t.dr1Role, langs:t.dr1Lang, av:"cross"},
+    {n:t.dr2Name, role:t.dr2Role, langs:t.dr2Lang, av:"ecg"},
+    {n:t.dr3Name, role:t.dr3Role, langs:t.dr3Lang, av:"waveform"},
   ];
   const clinics = [
-    {k:"lumina", n:"Lumina Dermatology Clinic", l:"Cheongdam-dong, Gangnam"},
-    {k:"ssi",    n:"Seoul Skin Institute",      l:"Apgujeong, Gangnam"},
-    {k:"bom",    n:"Bom Dermatology Group",     l:"Yeoksam, Gangnam"},
+    {k:"lumina", n:t.cl1Name, l:t.cl1Loc},
+    {k:"ssi",    n:t.cl2Name, l:t.cl2Loc},
+    {k:"bom",    n:t.cl3Name, l:t.cl3Loc},
+  ];
+  const included = [
+    {icon:"chat",   title:t.inc1Title, desc:t.inc1Desc},
+    {icon:"file",   title:t.inc2Title, desc:t.inc2Desc},
+    {icon:"plane",  title:t.inc3Title, desc:t.inc3Desc},
+    {icon:"medkit", title:t.inc4Title, desc:t.inc4Desc},
+    {icon:"shield", title:t.inc5Title, desc:t.inc5Desc},
+    {icon:"award",  title:t.inc6Title, desc:t.inc6Desc},
   ];
   return (
     <section className="detail-grid" style={{padding:"32px 80px 80px", display:"grid", gridTemplateColumns:"1.4fr 1fr", gap:48, alignItems:"flex-start"}}>
       <div style={{display:"flex", flexDirection:"column", gap:48}}>
         <div>
-          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 14px", letterSpacing:"-0.01em"}}>Overview</h2>
-          <p style={{font:"400 17px/1.7 var(--font-body)", color:"var(--text-primary)", margin:"0 0 14px"}}>Korean dermatology pairs medical training with research-led product development. K-Med Global's dermatology program brings that same standard to international patients — every plan begins with a board-certified dermatologist consultation, not a sales pitch.</p>
-          <p style={{font:"400 17px/1.7 var(--font-body)", color:"var(--text-secondary)", margin:0}}>You'll receive a written care plan, an itemized estimate, and a recovery schedule that fits your travel window. Treatments are sequenced so you can fly home comfortably.</p>
+          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 14px", letterSpacing:"-0.01em"}}>{t.ovTitle}</h2>
+          <p style={{font:"400 17px/1.7 var(--font-body)", color:"var(--text-primary)", margin:"0 0 14px"}}>{t.ovP1}</p>
+          <p style={{font:"400 17px/1.7 var(--font-body)", color:"var(--text-secondary)", margin:0}}>{t.ovP2}</p>
         </div>
 
         <div>
-          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>What's included</h2>
+          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>{t.incTitle}</h2>
           <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:14}}>
-            {[
-              {icon:"chat", title:"Pre-arrival chat", desc:"Coordinator review in your language, before you book a flight."},
-              {icon:"file", title:"Doctor-reviewed estimate", desc:"Itemized, clinic-issued. No automated calculators."},
-              {icon:"plane", title:"Travel concierge", desc:"Visa letter, airport pickup, lodging guidance."},
-              {icon:"medkit", title:"On-site interpretation", desc:"Live medical interpretation at every appointment."},
-              {icon:"shield", title:"Aftercare follow-up", desc:"30-day teleconsult and home-care kit included."},
-              {icon:"award", title:"Verified clinics only", desc:"MoHW-registered partners with malpractice coverage."},
-            ].map((b,i)=>(
+            {included.map((b,i)=>(
               <div key={i} style={{display:"flex", gap:14, padding:"18px 20px", borderRadius:14, background:"#fff", border:"1px solid var(--kmed-line)"}}>
                 <div style={{width:40, height:40, borderRadius:10, background:"var(--kmed-aqua-soft)", display:"flex", alignItems:"center", justifyContent:"center", flex:"none"}}><Icon name={b.icon} size={18} color="#00579B"/></div>
                 <div>
@@ -511,7 +516,7 @@ const DetailBodyVisual = () => {
         </div>
 
         <div>
-          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>Procedures included</h2>
+          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>{t.procTitle}</h2>
           <div className="surface--ring" style={{borderRadius:16, overflow:"hidden"}}>
             {procedures.map((p,i)=>(
               <div key={i} style={{display:"grid", gridTemplateColumns:"40px 1.3fr 1fr 1fr 80px", padding:"18px 22px", borderBottom: i<procedures.length-1?"1px solid var(--kmed-line)":"none", alignItems:"center", gap:14}}>
@@ -524,14 +529,14 @@ const DetailBodyVisual = () => {
                 </div>
                 <div style={{font:"400 14px var(--font-body)", color:"var(--text-secondary)"}}><Icon name="cal" size={14} color="rgba(0,0,0,0.4)"/> <span style={{verticalAlign:"middle", marginLeft:4}}>{p.dur}</span></div>
                 <div style={{font:"700 14px var(--font-body)", color:"var(--kmed-green-dark)"}}>{p.price}</div>
-                <div style={{textAlign:"right"}}><a href="#" className="btn btn--text" style={{fontSize:13}}>Info →</a></div>
+                <div style={{textAlign:"right"}}><a href="#" className="btn btn--text" style={{fontSize:13}}>{t.procInfo}</a></div>
               </div>
             ))}
           </div>
         </div>
 
         <div>
-          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>Frequently asked</h2>
+          <h2 style={{font:"900 32px var(--font-display)", margin:"0 0 20px"}}>{t.faqTitle}</h2>
           <div style={{display:"flex", flexDirection:"column", gap:12}}>
             {faqs.map((f,i)=>(
               <div key={i} className="surface--ring" style={{padding:"22px 24px"}}>
@@ -549,20 +554,20 @@ const DetailBodyVisual = () => {
       {/* Right rail */}
       <div style={{display:"flex", flexDirection:"column", gap:24, position:"sticky", top:24}}>
         <div className="surface" style={{padding:"28px"}}>
-          <div style={{font:"700 11px var(--font-body)", color:"var(--text-disabled)", letterSpacing:"0.14em", textTransform:"uppercase"}}>Request an estimate</div>
-          <div style={{font:"900 24px var(--font-display)", margin:"6px 0 16px"}}>Get a doctor-reviewed quote</div>
-          <p style={{font:"400 14px/1.55 var(--font-body)", color:"var(--text-secondary)", margin:"0 0 18px"}}>Submit your case and 2–3 partner clinics will respond with itemized estimates within 24 hours.</p>
+          <div style={{font:"700 11px var(--font-body)", color:"var(--text-disabled)", letterSpacing:"0.14em", textTransform:"uppercase"}}>{t.rrEyebrow}</div>
+          <div style={{font:"900 24px var(--font-display)", margin:"6px 0 16px"}}>{t.rrTitle}</div>
+          <p style={{font:"400 14px/1.55 var(--font-body)", color:"var(--text-secondary)", margin:"0 0 18px"}}>{t.rrDesc}</p>
           <div style={{display:"flex", flexDirection:"column", gap:14, marginBottom:20}}>
-            {["Skin photos (selfie acceptable)","Areas of concern","Travel window","Budget range (optional)"].map(x=>(
+            {[t.rrItem1, t.rrItem2, t.rrItem3, t.rrItem4].map(x=>(
               <div key={x} style={{display:"flex", alignItems:"center", gap:10, font:"400 13px var(--font-body)"}}><Icon name="check" size={14} color="#357A38"/>{x}</div>
             ))}
           </div>
-          <button className="btn btn--primary" style={{width:"100%", justifyContent:"center", padding:"14px"}}>Estimate request <Icon name="arrow" size={14} color="#fff"/></button>
-          <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)", textAlign:"center", marginTop:12}}>Free · No payment to start</div>
+          <button className="btn btn--primary" style={{width:"100%", justifyContent:"center", padding:"14px"}}>{t.rrCta} <Icon name="arrow" size={14} color="#fff"/></button>
+          <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)", textAlign:"center", marginTop:12}}>{t.rrFree}</div>
         </div>
 
         <div className="surface--ring" style={{padding:"24px"}}>
-          <div style={{font:"700 14px var(--font-display)", color:"var(--kmed-navy)", marginBottom: 14, letterSpacing:"0.08em", textTransform:"uppercase", fontSize:12}}>Recommended specialists</div>
+          <div style={{font:"700 14px var(--font-display)", color:"var(--kmed-navy)", marginBottom: 14, letterSpacing:"0.08em", textTransform:"uppercase", fontSize:12}}>{t.rrDoctorsLabel}</div>
           <div style={{display:"flex", flexDirection:"column", gap:12}}>
             {docs.map((d,i)=>(
               <div key={i} style={{display:"flex", gap:12, alignItems:"center", padding:"10px 0", borderBottom: i<2?"1px solid var(--kmed-line)":"none"}}>
@@ -572,15 +577,15 @@ const DetailBodyVisual = () => {
                   <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)"}}>{d.role}</div>
                   <div style={{font:"400 11px var(--font-body)", color:"var(--kmed-aqua)"}}>{d.langs}</div>
                 </div>
-                <a href="#" className="btn btn--text" style={{fontSize:12}}>Profile</a>
+                <a href="#" className="btn btn--text" style={{fontSize:12}}>{t.rrProfile}</a>
               </div>
             ))}
           </div>
         </div>
 
         <div className="surface--ring" style={{padding:"24px"}}>
-          <div style={{font:"700 12px var(--font-body)", color:"var(--kmed-navy)", marginBottom:6, letterSpacing:"0.08em", textTransform:"uppercase"}}>Featured partner clinics</div>
-          <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)", fontStyle:"italic", marginBottom:14}}>* Representative monograms — placeholder marks</div>
+          <div style={{font:"700 12px var(--font-body)", color:"var(--kmed-navy)", marginBottom:6, letterSpacing:"0.08em", textTransform:"uppercase"}}>{t.rrClinicsLabel}</div>
+          <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)", fontStyle:"italic", marginBottom:14}}>{t.clinicsNote}</div>
           {clinics.map((c,i)=>(
             <div key={i} style={{display:"flex", gap:12, alignItems:"center", padding:"10px 0", borderBottom: i<2?"1px solid var(--kmed-line)":"none"}}>
               <div style={{width:48, height:48, flex:"none"}}><ClinicMark kind={c.k}/></div>
@@ -598,28 +603,32 @@ const DetailBodyVisual = () => {
 
 // Reuse ComplianceNote, DetailTabs from kmed-treatments.jsx (already on window scope via Object.assign? Actually they're not exported.)
 // Simplest path: re-declare a thin local copy of the two.
-const TDComplianceNote = () => (
+const TDComplianceNote = () => {
+  const t = tk(T_TREAT, useKmedLang());
+  return (
   <section style={{padding: "0 80px"}}>
     <div style={{padding:"16px 24px", borderRadius:12, background:"#FFFAEB", border:"1px solid #FDE68A", display:"flex", gap:14, alignItems:"flex-start"}}>
       <div style={{width:32, height:32, borderRadius:8, background:"#FCD34D", display:"flex", alignItems:"center", justifyContent:"center", flex:"none", color:"#7C5800", font:"900 14px var(--font-body)"}}>!</div>
       <div>
-        <div style={{font:"700 14px var(--font-body)", color:"#7C5800", marginBottom:2}}>Medical advertising notice</div>
+        <div style={{font:"700 14px var(--font-body)", color:"#7C5800", marginBottom:2}}>{t.cnTitle}</div>
         <div style={{font:"400 13px/1.55 var(--font-body)", color:"#7C5800"}}>
-          Treatment outcomes vary individually. Estimates are indicative only — final pricing is issued by the partner hospital after a doctor reviews your records. Per Korean Medical Service Act, before/after photographs are not displayed.
+          {t.cnBody}
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const TDTabs = () => {
+  const t = tk(T_TREAT, useKmedLang());
   const [tab, setTab] = React.useState(0);
-  const tabs = ["Overview", "Procedures included", "What to expect", "FAQs"];
+  const tabs = [t.tabOverview, t.tabProcedures, t.tabExpect, t.tabFaqs];
   return (
     <section style={{padding:"40px 80px 16px"}}>
       <div style={{display:"flex", gap:32, borderBottom:"1px solid var(--kmed-line)"}}>
-        {tabs.map((t,i)=>(
-          <div key={t} onClick={()=>setTab(i)} style={{padding:"14px 0", borderBottom: i===tab? "3px solid var(--kmed-aqua)":"3px solid transparent", marginBottom:-1, font:"700 16px var(--font-body)", color: i===tab?"var(--kmed-navy)":"var(--text-secondary)", cursor:"pointer"}}>{t}</div>
+        {tabs.map((tt,i)=>(
+          <div key={tt} onClick={()=>setTab(i)} style={{padding:"14px 0", borderBottom: i===tab? "3px solid var(--kmed-aqua)":"3px solid transparent", marginBottom:-1, font:"700 16px var(--font-body)", color: i===tab?"var(--kmed-navy)":"var(--text-secondary)", cursor:"pointer"}}>{tt}</div>
         ))}
       </div>
     </section>

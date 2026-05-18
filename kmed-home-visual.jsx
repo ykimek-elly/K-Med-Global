@@ -511,7 +511,9 @@ const PatternAvatar = ({ kind, size = 56 }) => {
 // SECTIONS — re-implementations of the home sections with new visuals
 // ============================================================================
 
-const HeroHomeVisual = () => (
+const HeroHomeVisual = () => {
+  const t = tk(T_HOME, useKmedLang());
+  return (
   <section className="home-hero" style={{position:"relative", padding:"40px 80px 80px", overflow:"hidden", display:"block"}}>
     <div style={{position:"absolute", right:-180, top:40, width:560, height:560, borderRadius:"50%", background:"var(--kmed-pink-warm)", opacity:.65, zIndex:0}}></div>
     <div style={{position:"absolute", right:-60, top:120, width:380, height:380, borderRadius:"50%", border:"1px solid var(--kmed-aqua-soft)", zIndex:0}}></div>
@@ -520,23 +522,23 @@ const HeroHomeVisual = () => (
     <div className="home-hero__grid" style={{position:"relative", display:"grid", gridTemplateColumns:"1fr 1fr", gap:60, alignItems:"center", minHeight:560, zIndex:1}}>
       <div>
         <div style={{display:"flex", gap:8, marginBottom:24}}>
-          <span className="trust-pill"><Icon name="shield" size={14} color="#00579B"/>Korean MoHW Accredited</span>
-          <span className="trust-pill trust-pill--green"><Icon name="check" size={14} color="#357A38"/>JCI Partner Hospitals</span>
+          <span className="trust-pill"><Icon name="shield" size={14} color="#00579B"/>{t.trustMohw}</span>
+          <span className="trust-pill trust-pill--green"><Icon name="check" size={14} color="#357A38"/>{t.trustJci}</span>
         </div>
         <h1 className="kh-title kh-title--xl" style={{margin:"0 0 20px"}}>
-          Your Trusted Gateway to <span style={{color:"var(--kmed-aqua)"}}>World-Class</span> Medical Care in Korea
+          {t.heroTitleA}<span style={{color:"var(--kmed-aqua)"}}>{t.heroTitleAccent}</span>{t.heroTitleB}
         </h1>
         <p style={{font:"400 20px/1.55 var(--font-body)", color:"var(--text-secondary)", margin:"0 0 32px", maxWidth:540}}>
-          From dermatology to advanced oncology — match with verified Korean hospitals, request a treatment estimate, and travel with full concierge support in your language.
+          {t.heroSub}
         </p>
         <div style={{display:"flex", alignItems:"center", gap:20, marginBottom:36}}>
-          <button className="btn btn--primary btn--primary-lg">Find My Treatment <Icon name="arrow" size={16} color="#fff"/></button>
-          <a href="#" className="btn btn--text" style={{fontSize:16, color:"var(--kmed-green-dark)"}}>How it works →</a>
+          <button className="btn btn--primary btn--primary-lg">{t.heroCtaFind} <Icon name="arrow" size={16} color="#fff"/></button>
+          <a href="#" className="btn btn--text" style={{fontSize:16, color:"var(--kmed-green-dark)"}}>{t.heroCtaHow}</a>
         </div>
         <div style={{display:"flex", gap:32, paddingTop:24, borderTop:"1px solid var(--kmed-line)"}}>
-          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>120+</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>Partner hospitals</div></div>
-          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>34</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>Specialties covered</div></div>
-          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>8,400+</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>Patients assisted</div></div>
+          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>120+</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>{t.statHospitals}</div></div>
+          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>34</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>{t.statSpecialties}</div></div>
+          <div><div style={{font:"900 28px var(--font-display)", color:"var(--kmed-green-dark)"}}>8,400+</div><div style={{font:"400 13px var(--font-body)", color:"var(--text-secondary)"}}>{t.statPatients}</div></div>
         </div>
       </div>
 
@@ -552,39 +554,41 @@ const HeroHomeVisual = () => (
         <div className="surface--sm home-hero__overlay" style={{position:"absolute", left:-10, top:80, padding:"14px 18px", display:"flex", alignItems:"center", gap:12, zIndex:3, boxShadow:"0 12px 30px -10px rgba(10,21,48,0.14)"}}>
           <div style={{width:36, height:36, borderRadius:10, background:"var(--kmed-aqua-soft)", display:"flex", alignItems:"center", justifyContent:"center"}}><Icon name="chat" size={18} color="#00579B"/></div>
           <div>
-            <div style={{font:"700 13px var(--font-body)"}}>Chat in your language</div>
-            <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)"}}>EN · 中文 · 日本語 · 繁體</div>
+            <div style={{font:"700 13px var(--font-body)"}}>{t.chatTitle}</div>
+            <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)"}}>{t.chatLangs}</div>
           </div>
         </div>
         <div className="surface--sm home-hero__overlay" style={{position:"absolute", right:-20, bottom:60, padding:"14px 18px", display:"flex", alignItems:"center", gap:12, zIndex:3, boxShadow:"0 12px 30px -10px rgba(10,21,48,0.14)"}}>
           <div style={{width:36, height:36, borderRadius:10, background:"rgba(76,175,80,0.14)", display:"flex", alignItems:"center", justifyContent:"center"}}><Icon name="plane" size={18} color="#357A38"/></div>
           <div>
-            <div style={{font:"700 13px var(--font-body)"}}>Visa & travel covered</div>
-            <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)"}}>Concierge from arrival</div>
+            <div style={{font:"700 13px var(--font-body)"}}>{t.visaTitle}</div>
+            <div style={{font:"400 11px var(--font-body)", color:"var(--text-secondary)"}}>{t.visaSub}</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // Treatment chip row — same as before, kept for system continuity
 const TreatmentChipsVisual = () => {
+  const t = tk(T_HOME, useKmedLang());
   const items = [
-    { icon: "sparkle", label: "Dermatology & K-Beauty", color: "var(--kmed-pink)" },
-    { icon: "medkit", label: "Plastic Surgery", color: "var(--kmed-pink)" },
-    { icon: "shield", label: "Health Screening", color: "var(--kmed-aqua)" },
-    { icon: "award", label: "Orthopedics & Spine", color: "var(--kmed-aqua)" },
-    { icon: "star", label: "Oncology", color: "var(--kmed-green-dark)" },
-    { icon: "user", label: "Fertility / IVF", color: "var(--kmed-green-dark)" },
-    { icon: "medkit", label: "Dental", color: "var(--kmed-aqua)" },
-    { icon: "plus", label: "View All Specialties", color: "var(--kmed-navy)" },
+    { icon: "sparkle", label: t.chipDerm,      color: "var(--kmed-pink)",       catKey: "dermatology" },
+    { icon: "medkit",  label: t.chipPlastic,   color: "var(--kmed-pink)",       catKey: "plastic" },
+    { icon: "shield",  label: t.chipScreening, color: "var(--kmed-aqua)",       catKey: "screening" },
+    { icon: "award",   label: t.chipOrtho,     color: "var(--kmed-aqua)",       catKey: "orthopedics" },
+    { icon: "star",    label: t.chipOncology,  color: "var(--kmed-green-dark)", catKey: "oncology" },
+    { icon: "user",    label: t.chipFertility, color: "var(--kmed-green-dark)", catKey: "fertility" },
+    { icon: "medkit",  label: t.chipDental,    color: "var(--kmed-aqua)",       catKey: "dental" },
+    { icon: "plus",    label: t.chipViewAll,   color: "var(--kmed-navy)",       catKey: "all" },
   ];
   return (
     <section style={{padding:"0 80px 64px"}}>
       <div className="surface chip-row" style={{padding:"32px 40px", display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:20}}>
         {items.map((it,i)=>(
-          <a key={i} href="#" onClick={e=>e.preventDefault()} style={{display:"flex", alignItems:"center", gap:14, padding:"14px 8px", borderRadius:14, textDecoration:"none", color:"var(--text-primary)"}}>
+          <a key={i} href="#" onClick={e=>{e.preventDefault(); kmedJumpToCategory(it.catKey);}} style={{display:"flex", alignItems:"center", gap:14, padding:"14px 8px", borderRadius:14, textDecoration:"none", color:"var(--text-primary)", cursor:"pointer", transition:"background .15s"}} onMouseOver={e=>e.currentTarget.style.background="var(--kmed-bg-soft)"} onMouseOut={e=>e.currentTarget.style.background="transparent"}>
             <span style={{width:44, height:44, borderRadius:12, background:"#fff", border:"1px solid var(--kmed-line)", display:"flex", alignItems:"center", justifyContent:"center"}}><Icon name={it.icon} size={20} color={it.color}/></span>
             <span style={{font:"700 15px var(--font-body)"}}>{it.label}</span>
           </a>
@@ -595,26 +599,27 @@ const TreatmentChipsVisual = () => {
 };
 
 const FeaturedTreatmentsVisual = () => {
+  const t = tk(T_HOME, useKmedLang());
   const items = [
-    { cat:"Dermatology", title:"K-Beauty Skincare Program", desc:"Customized facials, laser, and pigmentation care designed for traveling patients. 3–7 day plans.", price:"USD 480 – 2,400", visual: <TVDermatology/> },
-    { cat:"Health Screening", title:"Premium Full-Body Check-up", desc:"Comprehensive 1-day screening with PET-CT, cardiology, and oncology markers at top hospitals.", price:"USD 1,800 – 4,200", visual: <TVScreening/> },
-    { cat:"Orthopedics", title:"Spine & Joint Restoration", desc:"Minimally invasive spine surgery and robotic knee/hip replacement with 7–14 day recovery support.", price:"USD 8,500 – 22,000", visual: <TVOrtho/> },
-    { cat:"Plastic Surgery", title:"Facial Contouring Consult", desc:"Doctor-led consultations and conservative procedure planning. 2-stage review before any commitment.", price:"USD 2,200 – 12,000", visual: <TVPlastic/> },
-    { cat:"Oncology", title:"Cancer Second Opinion", desc:"Bring your records — receive a multi-disciplinary review from Korean tertiary cancer centers.", price:"USD 950 – 3,200", visual: <TVOncology/> },
-    { cat:"Dental", title:"Implant & Smile Design", desc:"Digital implant planning, all-on-4, and porcelain veneers from Gangnam-area dental clinics.", price:"USD 1,200 – 9,800", visual: <TVDental/> },
+    { cat:t.catDerm,      catKey:"dermatology", title:t.tDerm,    desc:t.tDermDesc,    price:"USD 480 – 2,400",   visual: <TVDermatology/> },
+    { cat:t.catScreening, catKey:"screening",   title:t.tScreen,  desc:t.tScreenDesc,  price:"USD 1,800 – 4,200", visual: <TVScreening/> },
+    { cat:t.catOrtho,     catKey:"orthopedics", title:t.tOrtho,   desc:t.tOrthoDesc,   price:"USD 8,500 – 22,000",visual: <TVOrtho/> },
+    { cat:t.catPlastic,   catKey:"plastic",     title:t.tPlastic, desc:t.tPlasticDesc, price:"USD 2,200 – 12,000",visual: <TVPlastic/> },
+    { cat:t.catOncology,  catKey:"oncology",    title:t.tOnc,     desc:t.tOncDesc,     price:"USD 950 – 3,200",   visual: <TVOncology/> },
+    { cat:t.catDental,    catKey:"dental",      title:t.tDent,    desc:t.tDentDesc,    price:"USD 1,200 – 9,800", visual: <TVDental/> },
   ];
   return (
     <section style={{padding:"0 80px 80px"}}>
       <div style={{display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:32}}>
         <div>
-          <div className="eyebrow">Popular Treatments</div>
-          <h2 className="kh-title" style={{margin:"8px 0 0"}}>Featured care from accredited Korean hospitals</h2>
+          <div className="eyebrow">{t.featEyebrow}</div>
+          <h2 className="kh-title" style={{margin:"8px 0 0"}}>{t.featTitle}</h2>
         </div>
-        <a href="#" className="btn btn--ghost">Browse all treatments <Icon name="arrow" size={14}/></a>
+        <a href="#" className="btn btn--ghost" onClick={e=>{e.preventDefault(); kmedJumpToCategory("all");}}>{t.featBrowseAll} <Icon name="arrow" size={14}/></a>
       </div>
       <div className="card-grid-3" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:28}}>
         {items.map((it,i)=>(
-          <div key={i} className="tcard">
+          <div key={i} className="tcard" onClick={()=>kmedJumpToCategory(it.catKey)} style={{cursor:"pointer", transition:"transform .15s ease, box-shadow .15s ease"}} onMouseOver={e=>{e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 14px 32px -10px rgba(10,21,48,0.18)";}} onMouseOut={e=>{e.currentTarget.style.transform=""; e.currentTarget.style.boxShadow="";}}>
             <div className="tcard__media" style={{padding:0, height:200, position:"relative", overflow:"hidden"}}>
               {it.visual}
               <div className="tcard__pin" style={{position:"absolute", top:16, left:16, zIndex:2}}>{it.cat}</div>
@@ -623,8 +628,8 @@ const FeaturedTreatmentsVisual = () => {
               <div className="tcard__title">{it.title}</div>
               <div className="tcard__desc">{it.desc}</div>
               <div className="tcard__foot">
-                <div className="tcard__price"><small>Estimate from</small>{it.price}</div>
-                <a href="#" className="btn btn--text">Details →</a>
+                <div className="tcard__price"><small>{t.featPriceLabel}</small>{it.price}</div>
+                <a href="#" className="btn btn--text" onClick={e=>e.stopPropagation()}>{t.featDetails}</a>
               </div>
             </div>
           </div>
@@ -635,25 +640,26 @@ const FeaturedTreatmentsVisual = () => {
 };
 
 const PartnerHospitalsVisual = () => {
+  const t = tk(T_HOME, useKmedLang());
   const items = [
-    { mark:"asan",      name:"Asan Medical Center",          loc:"Songpa-gu, Seoul",     tags:["JCI", "Cancer", "Cardiology"] },
-    { mark:"samsung",   name:"Samsung Medical Center",       loc:"Gangnam-gu, Seoul",    tags:["JCI", "Transplant", "Oncology"] },
-    { mark:"snu",       name:"Seoul National Univ. Hospital",loc:"Jongno-gu, Seoul",     tags:["Tertiary", "Research"] },
-    { mark:"severance", name:"Severance Hospital (Yonsei)",  loc:"Seodaemun-gu, Seoul",  tags:["JCI", "Robotics"] },
-    { mark:"guro",      name:"Korea Univ. Guro Hospital",    loc:"Guro-gu, Seoul",       tags:["Stroke", "Spine"] },
-    { mark:"pusan",     name:"Pusan National Univ. Hospital",loc:"Seo-gu, Busan",        tags:["Tertiary", "Dental"] },
-    { mark:"kangbuk",   name:"Kangbuk Samsung Check-up",     loc:"Jongno-gu, Seoul",     tags:["Screening"] },
-    { mark:"wooridul",  name:"Wooridul Spine Hospital",      loc:"Gangnam-gu, Seoul",    tags:["Spine", "Pain"] },
+    { mark:"asan",      name:t.hAsan,      loc:t.hAsanLoc,      tags:[t.tagJci, t.tagCancer, t.tagCardio] },
+    { mark:"samsung",   name:t.hSamsung,   loc:t.hSamsungLoc,   tags:[t.tagJci, t.tagTransplant, t.tagOncology] },
+    { mark:"snu",       name:t.hSnu,       loc:t.hSnuLoc,       tags:[t.tagTertiary, t.tagResearch] },
+    { mark:"severance", name:t.hSeverance, loc:t.hSeveranceLoc, tags:[t.tagJci, t.tagRobotics] },
+    { mark:"guro",      name:t.hGuro,      loc:t.hGuroLoc,      tags:[t.tagStroke, t.tagSpine] },
+    { mark:"pusan",     name:t.hPusan,     loc:t.hPusanLoc,     tags:[t.tagTertiary, t.tagDental] },
+    { mark:"kangbuk",   name:t.hKangbuk,   loc:t.hKangbukLoc,   tags:[t.tagScreening] },
+    { mark:"wooridul",  name:t.hWooridul,  loc:t.hWooridulLoc,  tags:[t.tagSpine, t.tagPain] },
   ];
   return (
     <section style={{padding:"0 80px 80px", background:"linear-gradient(180deg, transparent, #F5FBFE)"}}>
       <div style={{display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:32}}>
         <div>
-          <div className="eyebrow">Network</div>
-          <h2 className="kh-title" style={{margin:"8px 0 0"}}>120+ accredited partner hospitals</h2>
-          <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)", marginTop:8, fontStyle:"italic"}}>* Logos shown are representative monograms — placeholders for the real partner logos.</div>
+          <div className="eyebrow">{t.netEyebrow}</div>
+          <h2 className="kh-title" style={{margin:"8px 0 0"}}>{t.netTitle}</h2>
+          <div style={{font:"400 12px var(--font-body)", color:"var(--text-secondary)", marginTop:8, fontStyle:"italic"}}>{t.netLogoNote}</div>
         </div>
-        <a href="#" className="btn btn--ghost">View directory <Icon name="arrow" size={14}/></a>
+        <a href="#" className="btn btn--ghost">{t.netDirectory} <Icon name="arrow" size={14}/></a>
       </div>
       <div className="card-grid-4" style={{display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:20}}>
         {items.map((h,i)=>(
@@ -662,7 +668,7 @@ const PartnerHospitalsVisual = () => {
             <div style={{flex:1, minWidth:0}}>
               <div className="hcard__name" style={{whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis"}}>{h.name}</div>
               <div className="hcard__loc">{h.loc}</div>
-              <div className="hcard__tags">{h.tags.slice(0,2).map(t=><span key={t} className="hcard__tag">{t}</span>)}</div>
+              <div className="hcard__tags">{h.tags.slice(0,2).map(tg=><span key={tg} className="hcard__tag">{tg}</span>)}</div>
             </div>
           </div>
         ))}
@@ -672,25 +678,26 @@ const PartnerHospitalsVisual = () => {
 };
 
 const StoryStripVisual = () => {
+  const t = tk(T_HOME, useKmedLang());
   const items = [
-    { quote:"The coordinator translated every step. I never felt lost — even on the operating room intake.", name:"Sakura T.", meta:"Tokyo, Japan · Spine Surgery", tags:["Orthopedics","JP"], avatar:"ripple" },
-    { quote:"I came for a 2-day check-up and left with answers I'd waited five years for. Worth every dollar.", name:"David L.", meta:"San Francisco, USA · Health Screening", tags:["Screening","EN"], avatar:"grid" },
-    { quote:"My dermatology plan was tailored to my skin tone and my flight schedule. Felt genuinely premium.", name:"Wei C.", meta:"Taipei, Taiwan · K-Beauty", tags:["Dermatology","ZH"], avatar:"arc" },
+    { quote:t.stQuote1, name:"Sakura T.", meta:t.stMeta1, tags:[t.catOrtho,"JP"], avatar:"ripple" },
+    { quote:t.stQuote2, name:"David L.", meta:t.stMeta2, tags:[t.catScreening,"EN"], avatar:"grid" },
+    { quote:t.stQuote3, name:"Wei C.", meta:t.stMeta3, tags:[t.catDerm,"ZH"], avatar:"arc" },
   ];
   return (
     <section style={{padding:"60px 80px 80px"}}>
       <div style={{display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:32}}>
         <div>
-          <div className="eyebrow">Patient Stories</div>
-          <h2 className="kh-title" style={{margin:"8px 0 0"}}>Trusted by patients from 28 countries</h2>
+          <div className="eyebrow">{t.storiesEyebrow}</div>
+          <h2 className="kh-title" style={{margin:"8px 0 0"}}>{t.storiesTitle}</h2>
         </div>
-        <a href="#" className="btn btn--ghost">Read all stories <Icon name="arrow" size={14}/></a>
+        <a href="#" className="btn btn--ghost">{t.storiesReadAll} <Icon name="arrow" size={14}/></a>
       </div>
       <div className="card-grid-3 stories-grid" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:24}}>
         {items.map((s,i)=>(
           <div key={i} className="story">
             <div className="story__quote">{s.quote}</div>
-            <div className="story__tags">{s.tags.map(t=><span key={t} className="story__tag">{t}</span>)}</div>
+            <div className="story__tags">{s.tags.map(tg=><span key={tg} className="story__tag">{tg}</span>)}</div>
             <div className="story__patient">
               <div style={{width:48, height:48, borderRadius:"50%", overflow:"hidden", flexShrink:0}}>
                 <PatternAvatar kind={s.avatar} size={48}/>
